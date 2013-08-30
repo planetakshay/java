@@ -7,9 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import org.junit.Assert;
-import datastructures.stackUsingArrayList;
+import datastructures.StackUsingArrayList;
 
-public class stackUsingArrayListTest  {
+public class StackUsingArrayListTest  {
 
 	@Before
 	public void setup() throws Exception{
@@ -17,7 +17,7 @@ public class stackUsingArrayListTest  {
 	}
 	@Test
 	public void test(){
-		stackUsingArrayList<Integer> myStack = new stackUsingArrayList<Integer>();
+		StackUsingArrayList<Integer> myStack = new StackUsingArrayList<Integer>();
 		myStack.push(1);
 		myStack.push(2);
 		Assert.assertEquals("Error Message",(Object) myStack.pop(),1);
