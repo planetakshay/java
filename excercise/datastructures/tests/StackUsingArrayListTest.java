@@ -20,7 +20,7 @@ public class StackUsingArrayListTest  {
 		StackUsingArrayList<Integer> myStack = new StackUsingArrayList<Integer>();
 		myStack.push(1);
 		myStack.push(2);
-		Assert.assertEquals("Error Message",(Object) myStack.pop(),1);
+		Assert.assertEquals("Error Message",(Object) myStack.pop(),2);
 		//Assert.assertEquals
 		//assertTrue(2==myStack.pop());
 	}
