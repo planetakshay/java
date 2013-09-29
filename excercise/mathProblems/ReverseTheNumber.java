@@ -1,4 +1,4 @@
-package MathProblems;
+package mathProblems;
 
 public class ReverseTheNumber {
 
