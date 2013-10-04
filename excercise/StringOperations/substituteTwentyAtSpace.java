@@ -25,8 +25,27 @@ public class substituteTwentyAtSpace {
 				sb.append(c);
 			}
 		}
-		
 		return sb.toString();
 	}
 	
+	public static String substituteInPlace(char[] str,int length){
+		int spacecount=0;
+		for(int i=0;i<str.length;i++){
+			
+			if(str[i]==' '){
+				++spacecount;
+			}
+		}
+		
+		int newLength = length+ spacecount*2;
+		str[newLength] ='\0';
+		
+		for(int i=0;i<str.length-1;i++){
+			if(str[i]==' '){
+	//			str[i]
+			}
+		}
+		
+		return "";
+	}
 }
