@@ -1,22 +1,5 @@
 package datastructures;
 
-class Link{
-	public int data;
-	public int index;
-	Link nextLink;
-	public Link(int data,int index){
-		this.data=data;
-		this.index=index;
-	}
-	public Link(int data){
-		this.data=data;
-	}
-	public void printLink(){
-		//System.out.println("index="+index+ " and Data="+data);
-		System.out.println(" data = "+data);
-	}
-	
-}
 
 class LinkList{
 	
