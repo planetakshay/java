@@ -59,5 +59,28 @@ public class LinkListOpsTest {
 		System.out.println("testAddToHeadTailHead passed" +l.getLinkListData().toString());
 		System.out.println("----");
 	}
+
+	@Test
+	public void testRandomAdd(){
+		ArrayList<Integer> exLink = new ArrayList<Integer>();
+		exLink.add(15);
+		exLink.add(5);
+		exLink.add(3);
+		exLink.add(1);
+		exLink.add(2);
+		exLink.add(20);
+		
+		LinkListOps l = new LinkListOps();
+		l.addLinkToHead(1);
+		l.addLinkToTail(2);
+		l.addLinkToHead(3);
+		l.addLinkToHead(5);
+		l.addLinkToHead(15);
+		l.addLinkToTail(20);
+		assertTrue("testRandomAdd Failed exLink="+exLink.toString() + "and actual linklist ="+l.getLinkListData().toString(), exLink.toString().equalsIgnoreCase(l.getLinkListData().toString()));
+		System.out.println("testRandomAdd passed" +l.getLinkListData().toString());
+		System.out.println("----");
+	}
+
 	
 }
