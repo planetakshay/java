@@ -17,8 +17,6 @@ class CounterThread implements Runnable{
 		}
 		System.out.println("## "+threadName + " done counting till "+c);
 	}
-
-	
 	
 }
 
