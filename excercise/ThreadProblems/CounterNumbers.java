@@ -13,7 +13,7 @@ class CounterThread implements Runnable{
 	public void run() {
 		
 		for( c=1;c<countTill;c++){
-			System.out.println( threadName+"-"+c);
+			System.out.println( threadName+" reached "+c);
 		}
 		System.out.println("## "+threadName + " done counting till "+c);
 	}
