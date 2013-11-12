@@ -25,8 +25,10 @@ public class BinarySearchTree {
 		
 		bst.printTreeLayers(rootNode);
 		System.out.println();
-		System.out.println(" heightLeft="+bst.heightLeft(rootNode));
+		System.out.println("heightLeft="+bst.heightLeft(rootNode));
 		System.out.println("height right="+bst.heightRight(rootNode));
+		System.out.println("max depth="+bst.maxDepth(rootNode));
+		
 	}
 
 	public TreeStructure insert(TreeStructure node, int value){
@@ -74,7 +76,13 @@ public class BinarySearchTree {
 		}
 		return 1+heightRight(node.right);
 	}
-
+	public int maxDepth(TreeStructure  node){
+		if(node==null){
+			return 0;
+		}
+		return 1+Math.max(maxDepth(node.left), maxDepth(node.right));
+	}
+	
 }
 
 
