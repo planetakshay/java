@@ -25,7 +25,7 @@ public class BinarySearchTree {
 		
 		bst.printTreeLayers(rootNode);
 		System.out.println();
-		System.out.println("heightLeft="+bst.heightLeft(rootNode));
+		System.out.println(" heightLeft="+bst.heightLeft(rootNode));
 		System.out.println("heightLeft="+bst.heightRight(rootNode));
 	}
 
