@@ -11,21 +11,21 @@ public class MergeTwoSortedArrays {
 		int i=m-1; //index of last element in a
 		int j=n-1;// index of last element in b
 		int k=m+n-1; //index of last element of merged array
-		
+		//while loop until the smallest size array is exhausted
 		while(i>=0 && j>=0){
-			if(a[i] >= b[j]){
+			if(a[i] >= b[j]){ // if the element in a is greater, put that a[i] in merged array.
 				mergedArray[k--]=a[i--];
-			}else{
+			}else{ // if b[j] is greater, put b[j] in to mergedArray
 				mergedArray[k--]=b[j--];
 			}
 			
 		}
-		if(i>=0){
+		if(i>=0){ // if a was a bigger array, put the remaining elements in merged array
 			while(i>=0){
 				mergedArray[k--] = a[i--];
 			}
 		}
-		if(j>=0){
+		if(j>=0){ // if b was a bigger array, put the remaining elements in merged array
 			while(j>=0){
 				mergedArray[k--]= b[j--];
 			}
