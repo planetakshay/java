@@ -54,7 +54,6 @@ public class AnagramGroupFreq {
 				anaMap.put(key, value);
 			}
 		}
-		
 		for(Map.Entry<String, String> entry: anaMap.entrySet()){
 			System.out.println(" Key = "+entry.getKey() + " and Value ->"+entry.getValue().toString());
 		}
