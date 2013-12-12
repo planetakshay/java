@@ -13,7 +13,7 @@ public class ConvertDecimalNumberToBinary {
 		System.out.println(sb.toString());
 	}
 	public static void main(String args[]){
-		int array[]  = new int[]{4,5,11,16,3}; 
+		int array[]  = new int[]{2,6,4,5,11,16,3}; 
 		
 		for(int i: array){
 			printBinary(i);
