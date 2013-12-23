@@ -10,9 +10,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-import javax.swing.text.html.HTMLDocument.Iterator;
+//import javax.swing.text.html.HTMLDocument.Iterator;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+//import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 /**
  * Given a text file with several lines find out word frequency.
