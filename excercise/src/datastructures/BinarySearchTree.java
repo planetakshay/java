@@ -4,7 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinarySearchTree {
-	
+	private class TreeStructure{
+		int data;
+		TreeStructure left;
+		TreeStructure right;
+		
+	}
 	public static void main(String args[]){
 		BinarySearchTree bst = new BinarySearchTree();
 		TreeStructure node=null;
@@ -28,6 +33,7 @@ public class BinarySearchTree {
 		System.out.println("heightLeft="+bst.heightLeft(rootNode));
 		System.out.println("height right="+bst.heightRight(rootNode));
 		System.out.println("max depth="+bst.maxDepth(rootNode));
+		System.out.println("min depth="+bst.minDepth(rootNode));
 		
 	}
 
@@ -51,7 +57,7 @@ public class BinarySearchTree {
 		
 		Queue<TreeStructure> tree = new LinkedList<TreeStructure>();
 		tree.add(root);
-		
+		//Testing
 		while(!tree.isEmpty()){
 			TreeStructure node = tree.poll();
 			System.out.print(node.data +", ");
@@ -82,14 +88,15 @@ public class BinarySearchTree {
 		}
 		return 1+Math.max(maxDepth(node.left), maxDepth(node.right));
 	}
+	public int minDepth(TreeStructure node){
+		if(node==null){
+			return 0;
+		}
+		return 1+Math.min(minDepth(node.left), minDepth(node.right));
+	}
+	
 	
 }
 
 
 	
-class TreeStructure{
-	int data;
-	TreeStructure left;
-	TreeStructure right;
-	
-}
