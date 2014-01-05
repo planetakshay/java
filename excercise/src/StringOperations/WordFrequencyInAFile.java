@@ -8,13 +8,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+//import javax.swing.text.html.HTMLDocument.Iterator;
+
+//import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 /**
  * Given a text file with several lines find out word frequency.
