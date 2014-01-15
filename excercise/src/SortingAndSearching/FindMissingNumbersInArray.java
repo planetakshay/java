@@ -7,7 +7,7 @@ package SortingAndSearching;
 
 import java.util.*;
 
-public class FindMissingElementsInArray {
+public class FindMissingNumbersInArray {
 
 	public static void printMissingNumbersUsingSort(int[] a){
 		Arrays.sort(a);// You could use quick sort for that.
