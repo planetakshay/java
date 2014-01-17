@@ -13,7 +13,9 @@ class MyQueue{
 	
 	//Always add to s1
 	public void add(int value){
-		s1.add(value);
+		//s1.add(value);
+		System.out.println("adding"+value);
+		s1.push(value);
 	}
 	
 	/* First find out if S2 is not empty. If so, just peek from s2.
@@ -41,10 +43,11 @@ class MyQueue{
 	}
 	
 	public boolean isEmpty(){
-		if(s1.isEmpty() && s2.isEmpty()){
-			return true;
-		}
-		return false;
+//		if(s1.isEmpty() && s2.isEmpty()){
+//			return true;
+//		}
+//		return false;   OR
+		return (s1.isEmpty() && s2.isEmpty())? true:false;
 	}
 }
 
@@ -56,10 +59,12 @@ public class QueueUsingStack {
 		mq.add(10);
 		mq.add(15);
 		mq.add(1);
-		while(! (mq.peek()==15))
-		System.out.println(mq.remove());
+		while(! (mq.peek()==15)){
+		System.out.println("removing"+mq.remove());
+		}
 		mq.add(2);
 		mq.add(3);
+		System.out.println("Printing Queue Content");
 		while(!mq.isEmpty())
 			System.out.println(mq.remove());
 	}
