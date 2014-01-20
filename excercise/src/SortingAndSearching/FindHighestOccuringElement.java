@@ -25,14 +25,11 @@ public class FindHighestOccuringElement {
 		int maxCountSofar=0;
 		int currentElmCount=0;
 		for( i=0;i<array.length;i++ ){
-			if(array[majorIndex]==array[i] ){
+			if(array[majorIndex]==array[i] || array[i]==array[i-1] ){
 				currentElmCount++;
 			}else if(array[i]!=array[i-1]){
 				currentElmCount=1;
-			}else if(array[i]==array[i-1]){
-				currentElmCount++;
 			}
-			
 			if(currentElmCount>maxCountSofar) {
 				majorIndex=i;
 				maxCountSofar =currentElmCount;
