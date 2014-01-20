@@ -23,13 +23,16 @@ public class FindHighestOccuringElement {
 		
 		int majorIndex=0;
 		int maxCountSofar=0;
-		int currentElmCount=0;
-		for( i=0;i<array.length;i++ ){
-			if(array[majorIndex]==array[i] || array[i]==array[i-1] ){
+		int currentElmCount=1;
+		//note that array traversal starts with 1. Since array[i-1] could result in error if i=0;
+		for( i=1;i<array.length;i++ ){
+			//increment the current element count when previous element and current element are same
+			if(array[i]==array[i-1]){
 				currentElmCount++;
-			}else if(array[i]!=array[i-1]){
+			}else if(array[i]!=array[i-1]){ //reset the current element count when current element is different from previous one
 				currentElmCount=1;
 			}
+			//Every time check if the current element counter is greater than max so far. if so reset the index and update max count so far
 			if(currentElmCount>maxCountSofar) {
 				majorIndex=i;
 				maxCountSofar =currentElmCount;
