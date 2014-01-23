@@ -13,6 +13,9 @@ class A {
 	public String toString(){	
 		return ""+i;
 	}
+	public void finalize(){
+		System.out.println("Garbage collecting"+this.i);
+	}
 }
 public class GarbageCollectionEligibility {
 		
@@ -28,9 +31,10 @@ public class GarbageCollectionEligibility {
 		a3 = a1.go(a2); // A Copy of a reference a2 [ie.e a2copy] is passed.  a3 is set to null. 
 		a1=null; // a1 is set to null.
 		
+		
 		//So now, object earlier referred to by a1 and a3 are now eligible for garbage collection.
 		// object referred by a2 is not eligible for GC.
-		
+		System.gc();
 		test(a1);
 		test(a2);
 		test(a3);
