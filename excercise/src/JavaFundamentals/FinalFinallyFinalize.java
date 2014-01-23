@@ -8,7 +8,7 @@ package JavaFundamentals;
  * @author Akshay
  *
  */
-final class  FinalClass{   // Final class can not be instantiated
+final class  FinalClass{  //Final Class can not be extended // Final class CAN BE instantiated
 	boolean b;
 	int i;
 	FinalClass(int i){
@@ -79,7 +79,8 @@ public class FinalFinallyFinalize {
 			System.out.println("finally is always called called");
 		}
 		
-		// FinalClass fc = new FinalClass(3);  // Final Class can not be instantiated
+		FinalClass fc = new FinalClass(3);  // Final Class CAN BE instantiated but not extended
+		fc.display();
 		AA a1 = new AA(1);
 		AA a2 = new AA(2);
 		AA a3 = new AA(3);
