@@ -86,6 +86,7 @@ public class FinalFinallyFinalize {
 		AA a3 = new AA(3);
 		a3 = a1.nullRef(a2); // Copy of the reference a2 is passed which is made null and returned.
 		a1=null; // a3 in previous instruction is null and now a1 is also null. Object referred to by a2 is not distroyed
+		System.out.println("Testing a1 a2 and a3");
 		test(a1);
 		test(a2);
 		test(a3);
