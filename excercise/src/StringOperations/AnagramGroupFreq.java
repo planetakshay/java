@@ -30,8 +30,7 @@ public class AnagramGroupFreq {
 	
 	
 	public static String sort(String str){
-		char[] c = new char[str.length()];
-		c = str.toCharArray();
+		char[] c = str.toCharArray();
 		Arrays.sort(c);
 		return String.valueOf(c);
 	}
