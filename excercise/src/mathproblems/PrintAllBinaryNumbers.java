@@ -23,20 +23,19 @@ public class PrintAllBinaryNumbers {
 		int j=0;
 		for(int i=array.length-1;i>=0;i--){
 			j=i;
-			if(array[i]==0 ){
-				if(trailingones==false) {
+			if(array[i]==0  ){
+				if(!trailingones) {
 					array[i]=1;
 					increment=true;
 					break;
 				}else{
 					break;
 				}
-				
-			}else if(array[i]==1){
+			}else if(array[i]==1 && !trailingones){
 				trailingones=true;
 			}
 		}
-		if(!increment && trailingones){
+		if(!increment && trailingones ){
 			array[j]=1;
 			while(j<array.length-1){
 				array[++j]=0;
@@ -58,7 +57,7 @@ public class PrintAllBinaryNumbers {
 	}
 	public static void main(String args[]){
 		
-		int w=16;
+		int w=5;
 		int[] array = new int[w];
 		
 		for(int i=0;i<w;i++){
@@ -66,15 +65,15 @@ public class PrintAllBinaryNumbers {
 			System.out.print(array[i]+" ");
 		}
 		System.out.println();
-		int i=1;
+		//long i=1;
 		while(!reachedMaxNumber(array)){
 			array = increment(array);
-			System.out.print(i+"=");
+			//System.out.print(i+"=");
 			for(int j:array){
 				System.out.print(j+" ");
 			}
 			System.out.println();
-			i++;
+			//i++;
 		}
 	}
 	
