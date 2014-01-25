@@ -18,31 +18,26 @@ package mathproblems;
 public class PrintAllBinaryNumbers {
 
 	public static int[] increment(int[] array){
-		boolean increment=false;
+
 		boolean trailingones=false;
-		int j=0;
+		
 		for(int i=array.length-1;i>=0;i--){
-			j=i;
+			
 			if(array[i]==0  ){
 				if(!trailingones) {
 					array[i]=1;
-					increment=true;
-					break;
+					return array;
 				}else{
-					break;
+					array[i]=1;
+					while(i<array.length-1){
+						array[++i]=0;
+					}
+					return array;
 				}
 			}else if(array[i]==1 && !trailingones){
 				trailingones=true;
 			}
 		}
-		if(!increment && trailingones ){
-			array[j]=1;
-			while(j<array.length-1){
-				array[++j]=0;
-			}
-			
-		}
-		
 		return array;
 	}
 	
