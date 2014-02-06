@@ -16,7 +16,9 @@ public class BalancedParenthesis {
 			switch(c){
 			
 			    case '{':  // if we find opening bracket, push it to the stack
-						stack.push(c);
+			    case '<':
+			    case '(':
+			    		stack.push(c);
 						break;
 						
 				case  '}':
@@ -26,21 +28,13 @@ public class BalancedParenthesis {
 						if(stack.pop()!='{')return false;
 						break;
 					}
-				
-			    case '<':
-					stack.push(c);
-					break;
 			    case  '>':
 			    	if(stack.isEmpty()) return false;
 					if(!stack.isEmpty()){
 						if(stack.pop()!='<')return false;
 					break;
 					}
-					
-			    case '(':
-					stack.push(c);
-					break;
-			    case  ')':
+			    case ')':
 			    	if(stack.isEmpty()) return false;
 					if(!stack.isEmpty()){
 						if(stack.pop()!='(')return false;
