@@ -64,6 +64,7 @@ public class QueueUsingStack {
 		}
 		mq.add(2);
 		mq.add(3);
+		mq.add(4);
 		System.out.println("Printing Queue Content");
 		while(!mq.isEmpty())
 			System.out.println(mq.remove());
