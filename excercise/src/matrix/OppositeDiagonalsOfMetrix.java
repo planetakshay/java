@@ -22,8 +22,8 @@ public class OppositeDiagonalsOfMetrix {
 		int[] diagonal2 = new int[length];
 		int j=0;
 		for(int i=0;i<length;i++){
-			diagonal1[i]=metrix[i][j];
-			diagonal2[i]=metrix[i][length-j-1];
+			diagonal1[i]=metrix[i][j]; // increase the column every iteration
+			diagonal2[i]=metrix[i][length-j-1]; // decrease the column count every iteration
 			j++;
 		}
 		for(int i:diagonal1){
