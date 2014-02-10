@@ -8,6 +8,24 @@ package StringOperations;
  */
 public class isSubString {
 
+	//given a string s1,s2, finds if s1 is a substring of s2.
+		public static boolean isSubString(char[] s1, char[] s2){
+			
+			for(int i=0;i<s2.length;i++){
+				
+				if(s1[0]==s2[i] && s2.length-i>=s1.length){
+					int originalIndex = i;
+					for(int j=0;j<s1.length;j++,originalIndex++){
+						if(s2[originalIndex]!=s1[j]){
+							break;
+						}else if(j==s1.length-1){
+							return true;
+						}
+					}
+				}
+			}
+			return false;
+		}
 	public static boolean isSubString(String s1,String s2){
 		
 		if(s1=="" && s2=="") return true;
