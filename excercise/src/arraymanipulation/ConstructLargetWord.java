@@ -33,23 +33,23 @@ public class ConstructLargetWord {
 		Set<String> candidateWords = new LinkedHashSet<String>(){};
 		
 		for(String word: words){
-			StringBuilder sbword = new StringBuilder(word);
-			StringBuilder sbch = new StringBuilder(String.valueOf(ch));
-			boolean allmatch = false;
+			StringBuilder sbword = new StringBuilder(word); //initialize string builder with word
+			StringBuilder sbch = new StringBuilder(String.valueOf(ch)); // convert the character array in to string. initialize the string builder with that
+			boolean allmatch = false; //match = false
 			for(int i=0;i<word.length();i++){
 				
-				char c = word.charAt(i);
-				int indexc = sbch.indexOf(c+"");
-				int indexw = sbword.indexOf(c+"");
-				if(indexc == -1){
-					break;
+				char c = word.charAt(i);   // get each character of word 
+				int indexc = sbch.indexOf(c+"");  // find indexes in word and character array string
+				int indexw = sbword.indexOf(c+""); //
+				if(indexc == -1){ // if the character from word is not even in character array - that word can not be formed. so break with allmatch=false;
+					break;		// This will also be -1 when word is bigger than total characters in array. even then word can not be considered as created using character array so break with allmatch=false;
 				}
-				else{
+				else{ // if the character is contained in word and character array string then delete it
 					sbword.deleteCharAt(indexw);
 					sbch.deleteCharAt(indexc);
 				}
-				if(sbword.length()==0){
-					allmatch = true;
+				if(sbword.length()==0){  // Since we can only match characters from char array once, lets check if all characters from word have been matched and deleted.
+					allmatch = true;     // if all characters have been deleted then allmatched=true and break.
 					break;
 				}
 			}
@@ -61,16 +61,20 @@ public class ConstructLargetWord {
 			if(allmatch && word.length()==biggestWord.length() ){
 				candidateWords.add(word);
 			}
-		
 		}
-		
-		
 		return  candidateWords;
 	}
 	
 	public static void main(String args[]){
-		String[] words = new String[] { "abc" , "baa" , "caan" , "an" , "banc","bancbanc","bancaak" }; 
 		char[] ch = new char[]{ 'a' , 'a' , 'n' , 'c' , 'b'};
+		
+		String[] words = new String[] { "abc" , "baa" , "caan" , "an" , "banc","bancbanc","bancaak" }; 
+		System.out.println(biggestWord(words,ch));
+		
+		words = new String[] { "abc" , "baa" , "caan" , "an" , "banc","bancbanc","bancaak","434","aacbn","aacbnn" }; 
+		System.out.println(biggestWord(words,ch));
+		
+		words = new String[] { "","abc" , "baa" , "caan" ,"caan", "an" , "banc","bancbanc","bancaak" }; 
 		System.out.println(biggestWord(words,ch));
 		
 	}
