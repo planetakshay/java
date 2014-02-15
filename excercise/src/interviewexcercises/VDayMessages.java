@@ -43,11 +43,14 @@ public class VDayMessages {
 			
 			msgFreq.put(messages.get(i).rcp, ++freq);
 		}
-		int lowestSofar =messages.size();
+		
 		for(Entry<String, Integer> entry: msgFreq.entrySet()){
 			System.out.println(entry.getKey()+entry.getValue());
 		}
+		//Remember, while finding the lowest occurrences, we need to have complete map built. So 
+		// Can not avoid two loops
 		String mrunpopular ="";
+		int lowestSofar =messages.size(); // Remember, while finding least number of occurrences, initialize lowest so far to the size of the data.
 		for(Entry<String, Integer> entry: msgFreq.entrySet()){
 			if(entry.getValue() < lowestSofar){
 				lowestSofar = entry.getValue();
