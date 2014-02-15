@@ -28,46 +28,6 @@ import java.util.TreeMap;
 
 public class VDayMessagesUsingComparable {
 
-public String findLeastPopularPerson(List<VMsg> messages){
-		
-		Map<String,Integer> msgFreq = new HashMap<String,Integer>();
-		for(int i=0;i<messages.size();i++){
-			int freq=0;
-			if(msgFreq.containsKey(messages.get(i).rcp)){
-				freq = msgFreq.get(messages.get(i).rcp);
-			}
-			
-			msgFreq.put(messages.get(i).rcp, ++freq);
-		}
-		
-		for(Entry<String, Integer> entry: msgFreq.entrySet()){
-			System.out.println(entry.getKey()+entry.getValue());
-		}
-		//Remember, while finding the lowest occurrences, we need to have complete map built. So 
-		// Can not avoid two loops
-		String mrunpopular ="";
-		int lowestSofar =messages.size(); // Remember, while finding least number of occurrences, initialize lowest so far to the size of the data.
-		for(Entry<String, Integer> entry: msgFreq.entrySet()){
-			if(entry.getValue() < lowestSofar){
-				lowestSofar = entry.getValue();
-				mrunpopular = entry.getKey();
-			}
-		}
-		
-		return mrunpopular;
-	}
-	
-	class VMsg implements Comparable<VMsg>{
-		public String rcp; // receiver of the message
-		VMsg(String rcp){
-			this.rcp=rcp;
-		}
-		@Override
-		public int compareTo(VMsg vmsg) {		
-			return rcp.compareTo(vmsg.rcp)<-1?-1:rcp.compareTo(vmsg.rcp)==1?1:0;
-		}
-	}
-	
 	public List<VMsg> generateVDayMessages(int n){
 		List<String> rcp = new ArrayList<String>(Arrays.asList("Akshay","Prachi","Samarth","Vrunda","Deodhar"));
 		List<VMsg> messages = new ArrayList<VMsg>();
@@ -81,6 +41,18 @@ public String findLeastPopularPerson(List<VMsg> messages){
 		}
 		return messages;
 	}
+	class VMsg implements Comparable<VMsg>{
+		public String rcp; // receiver of the message
+		VMsg(String rcp){
+			this.rcp=rcp;
+		}
+		@Override
+		public int compareTo(VMsg vmsg) {		
+			return rcp.compareTo(vmsg.rcp)<-1?-1:rcp.compareTo(vmsg.rcp)==1?1:0;
+		}
+	}
+	
+	
 	public String findLeastPopular(List<VMsg> messages){
 		
 		Collections.sort(messages); // Sort the collection
