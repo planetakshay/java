@@ -39,15 +39,14 @@ public class VDayMessages {
 			int freq=0;
 			if(msgFreq.containsKey(messages.get(i).rcp)){
 				freq = msgFreq.get(messages.get(i).rcp);
-				//System.out.println(messages.get(i).rcp + (freq+1));
 			}
 			
 			msgFreq.put(messages.get(i).rcp, ++freq);
 		}
 		int lowestSofar =messages.size();
-//		for(Entry<String, Integer> entry: msgFreq.entrySet()){
-//			System.out.println(entry.getKey()+entry.getValue());
-//		}
+		for(Entry<String, Integer> entry: msgFreq.entrySet()){
+			System.out.println(entry.getKey()+entry.getValue());
+		}
 		String mrunpopular ="";
 		for(Entry<String, Integer> entry: msgFreq.entrySet()){
 			if(entry.getValue() < lowestSofar){
