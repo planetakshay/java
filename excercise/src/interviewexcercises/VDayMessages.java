@@ -21,6 +21,7 @@ import java.util.Map.Entry;
  */
 public class VDayMessages {
 
+	
 	class VMsg{
 		public String msg;
 		public String rcp; // Receipient of the message
@@ -31,8 +32,21 @@ public class VDayMessages {
 		}
 		
 	}
-	
-	public String findLeastPopularPerson(List<VMsg> messages){
+	public List<VMsg> generateVDayMessages(int n){
+		List<String> rcp = new ArrayList<String>(Arrays.asList("Akshay","Prachi","Samarth","Vrunda","Deodhar"));
+		List<VMsg> messages = new ArrayList<VMsg>();
+		
+		while(n-- >0){
+			Collections.shuffle(rcp);
+			messages.add(new VMsg(rcp.get(0)));
+		}
+		n=1;
+		for(VMsg vmsg: messages){
+			System.out.print(n++ +" "+vmsg.rcp +" ");
+		}
+		return messages;
+	}
+public String findLeastPopularPerson(List<VMsg> messages){
 		
 		Map<String,Integer> msgFreq = new HashMap<String,Integer>();
 		for(int i=0;i<messages.size();i++){
@@ -60,21 +74,6 @@ public class VDayMessages {
 		
 		return mrunpopular;
 	}
-	public List<VMsg> generateVDayMessages(int n){
-		List<String> rcp = new ArrayList<String>(Arrays.asList("Akshay","Prachi","Samarth","Vrunda","Deodhar"));
-		List<VMsg> messages = new ArrayList<VMsg>();
-		
-		while(n-- >0){
-			Collections.shuffle(rcp);
-			messages.add(new VMsg(rcp.get(0)));
-		}
-		n=1;
-		for(VMsg vmsg: messages){
-			System.out.print(n++ +" "+vmsg.rcp +" ");
-		}
-		return messages;
-	}
-	
 	public static void main(String args[]){
 		VDayMessages vdm = new VDayMessages();
 		List<VMsg> messages = vdm.generateVDayMessages(100);
