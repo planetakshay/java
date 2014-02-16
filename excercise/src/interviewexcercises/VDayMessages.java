@@ -73,6 +73,7 @@ public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		int n = 1000;
 		List<VMsg> messages = new ArrayList<VMsg>(); 
 		messages = new GenerateData().generateVDayMessages(n*1000*20,messages,false);
+		
 		System.out.println("Starting to sort using Map: ");
 		long start,end;
 		start = System.currentTimeMillis();
@@ -80,12 +81,12 @@ public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		end = System.currentTimeMillis();
 		System.out.println("Time Using Map = "+(end-start));
 		System.out.println();
-		System.out.println("Starting to sort using Comparable:");
 		
-		start = System.currentTimeMillis();
-		System.out.println("Mr Unpopular using Comparable ="+ vm.findLeastPopularUsingComparable(messages));
-		end = System.currentTimeMillis();
-		System.out.println("Time Using Comparable = "+(end-start));	
+//		System.out.println("Starting to sort using Comparable:");
+//		start = System.currentTimeMillis();
+//		System.out.println("Mr Unpopular using Comparable ="+ vm.findLeastPopularUsingComparable(messages));
+//		end = System.currentTimeMillis();
+//		System.out.println("Time Using Comparable = "+(end-start));	
 	}
 	
 }

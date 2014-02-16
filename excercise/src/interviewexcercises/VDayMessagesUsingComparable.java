@@ -86,15 +86,18 @@ public class VDayMessagesUsingComparable {
         public static void main(String args[]){
 		
 		
-		VDayMessagesUsingComparable vdm = new VDayMessagesUsingComparable();
+		VDayMessagesUsingComparable vm = new VDayMessagesUsingComparable();
 		int n = 1000;
-		List<VMsg> messages = vdm.generateVDayMessages(n*1000*20);		
+		List<VMsg> messages = new ArrayList<VMsg>(); 
+		messages = new GenerateData().generateVDayMessages(n*1000*20,messages,false);
+				
 		long start,end;
-		System.out.println("Starting");
+		System.out.println("Starting to sort using Comparable:");
 		start = System.currentTimeMillis();
-		System.out.println("Mr Unpopular using Comparable ="+ vdm.findLeastPopularUsingComparable(messages));
+		System.out.println("Mr Unpopular using Comparable ="+ vm.findLeastPopularUsingComparable(messages));
 		end = System.currentTimeMillis();
-		System.out.println("Time Using Comparable = "+(end-start));
+		System.out.println("Time Using Comparable = "+(end-start));	
+
 	}
 	
 }
