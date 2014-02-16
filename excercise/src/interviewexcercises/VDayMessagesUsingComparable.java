@@ -2,7 +2,7 @@ package interviewexcercises;
 
 
 
-import interviewexcercises.VDayMessages.VMsg;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +26,16 @@ import java.util.TreeMap;
  *
  */
 
+class VMsg implements Comparable<VMsg>{
+	public String rcp; // receiver of the message
+	public VMsg(String rcp){
+		this.rcp=rcp;
+	}
+	@Override
+	public int compareTo(VMsg vmsg) {		
+		return rcp.compareTo(vmsg.rcp)<-1?-1:rcp.compareTo(vmsg.rcp)==1?1:0;
+	}
+}
 public class VDayMessagesUsingComparable {
 
 	public List<VMsg> generateVDayMessages(int n){
@@ -37,20 +47,11 @@ public class VDayMessagesUsingComparable {
 		}
 		n=1;
 		for(VMsg vmsg: messages){
-			System.out.print(n++ +" "+vmsg.rcp +" ");
+			//System.out.print(n++ +" "+vmsg.rcp +" ");
 		}
 		return messages;
 	}
-	class VMsg implements Comparable<VMsg>{
-		public String rcp; // receiver of the message
-		VMsg(String rcp){
-			this.rcp=rcp;
-		}
-		@Override
-		public int compareTo(VMsg vmsg) {		
-			return rcp.compareTo(vmsg.rcp)<-1?-1:rcp.compareTo(vmsg.rcp)==1?1:0;
-		}
-	}
+	
 	
 	
 	public String findLeastPopular(List<VMsg> messages){
@@ -60,8 +61,12 @@ public class VDayMessagesUsingComparable {
 		int rcpMsg=1; // By default if the receipient is in the list means that at least one message was received.
 		String mostunpopular="";
 		for(int i=0;i<messages.size()-1;i++){
-			if(messages.get(i).rcp.compareTo(messages.get(i+1).rcp)==0 ){
+			if(messages.get(i).rcp.compareTo(messages.get(i+1).rcp)==0  ){
 				rcpMsg++; //if the given rcp and next one are same, then increase the message count
+				if(rcpMsg>leastSoFar){
+					while( ++i<messages.size()-1 && messages.get(i).rcp.compareTo(messages.get(i+1).rcp)==0){}
+					rcpMsg=1;
+				}
 			}else{ // if the next one is not same as this recipient that means recipient has changed
 				if(rcpMsg<leastSoFar){  // find out if the last recipient received less messages than the least so far 
 					mostunpopular=messages.get(i).rcp; //if they did, update mostunpopular
@@ -73,12 +78,20 @@ public class VDayMessagesUsingComparable {
 		return mostunpopular; //return most unpopular
 	}
 
-	
-	public static void main(String args[]){
+	   
+
+        public static void main(String args[]){
+		
+		
 		VDayMessagesUsingComparable vdm = new VDayMessagesUsingComparable();
-		List<VMsg> messages = vdm.generateVDayMessages(10);
-		System.out.println();
+		int n = 1000;
+		List<VMsg> messages = vdm.generateVDayMessages(n*1000*20);		
+		long start,end;
+		System.out.println("Starting");
+		start = System.currentTimeMillis();
 		System.out.println("Mr Unpopular using Comparable ="+ vdm.findLeastPopular(messages));
+		end = System.currentTimeMillis();
+		System.out.println("Time Using Comparable = "+(end-start));
 	}
 	
 }

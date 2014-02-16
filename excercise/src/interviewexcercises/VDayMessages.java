@@ -42,7 +42,7 @@ public class VDayMessages {
 		}
 		n=1;
 		for(VMsg vmsg: messages){
-			System.out.print(n++ +" "+vmsg.rcp +" ");
+			//System.out.print(n++ +" "+vmsg.rcp +" ");
 		}
 		return messages;
 	}
@@ -58,9 +58,9 @@ public String findLeastPopularPerson(List<VMsg> messages){
 			msgFreq.put(messages.get(i).rcp, ++freq);
 		}
 		
-		for(Entry<String, Integer> entry: msgFreq.entrySet()){
-			System.out.println(entry.getKey()+entry.getValue());
-		}
+//		for(Entry<String, Integer> entry: msgFreq.entrySet()){
+//			System.out.println(entry.getKey()+entry.getValue());
+//		}
 		//Remember, while finding the lowest occurrences, we need to have complete map built. So 
 		// Can not avoid two loops
 		String mrunpopular ="";
@@ -76,9 +76,15 @@ public String findLeastPopularPerson(List<VMsg> messages){
 	}
 	public static void main(String args[]){
 		VDayMessages vdm = new VDayMessages();
-		List<VMsg> messages = vdm.generateVDayMessages(100);
-		System.out.println();
+		int n = 1000;
+		List<VMsg> messages = vdm.generateVDayMessages(n*1000*20);
+		System.out.println("Starting ");
+		long start,end;
+		start = System.currentTimeMillis();
 		System.out.println("Mr Unpopular ="+ vdm.findLeastPopularPerson(messages));
+		end = System.currentTimeMillis();
+		System.out.println("Time Using Map = "+(end-start));
+		
 	}
 	
 }
