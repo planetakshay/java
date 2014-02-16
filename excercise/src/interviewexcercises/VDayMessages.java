@@ -25,20 +25,6 @@ public class VDayMessages {
 
 	
 
-	public List<VMsg> generateVDayMessages(int n){
-		List<String> rcp = new ArrayList<String>(Arrays.asList("Akshay","Prachi","Samarth","Vrunda","Deodhar"));
-		List<VMsg> messages = new ArrayList<VMsg>();
-		
-		while(n-- >0){
-			Collections.shuffle(rcp);
-			messages.add(new VMsg(rcp.get(0)));
-		}
-		n=1;
-		for(VMsg vmsg: messages){
-			//System.out.print(n++ +" "+vmsg.rcp +" ");
-		}
-		return messages;
-	}
 public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		
 		Map<String,Integer> msgFreq = new HashMap<String,Integer>();
