@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Amazon - phone
@@ -23,26 +26,39 @@ import java.util.Map.Entry;
 
 public class VDayMessages {
 
+
 public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		
-		Map<String,Integer> msgFreq = new HashMap<String,Integer>();
+		Map<String,Integer> recipientToMessageFreq = new HashMap<String,Integer>();
 		for(int i=0;i<messages.size();i++){
 			int freq=0;
-			if(msgFreq.containsKey(messages.get(i).rcp)){
-				freq = msgFreq.get(messages.get(i).rcp);
+			if(recipientToMessageFreq.containsKey(messages.get(i).rcp)){
+				freq = recipientToMessageFreq.get(messages.get(i).rcp);
 			}
 			
-			msgFreq.put(messages.get(i).rcp, ++freq);
+			recipientToMessageFreq.put(messages.get(i).rcp, ++freq);
 		}
-		//Just a for loop for debugging. Shows how many messages for each participant
-//		for(Entry<String, Integer> entry: msgFreq.entrySet()){
+//		List<Integer> msgValues = new ArrayList<Integer>(recipientToMessageFreq.values());
+//		Collections.sort(msgValues);
+//		System.out.println(" most popular ="+msgValues.get(msgValues.size()-1));
+//		System.out.println(" least popular ="+msgValues.get(0));
+//		
+//		Map<String,Integer> rcpToMsgs = new TreeMap<String,Integer>(recipientToMessageFreq);
+//		System.out.println("\nPrinting Hash Map");
+//		//Just a for loop for debugging. Shows how many messages for each participant
+//		for(Entry<String, Integer> entry: recipientToMessageFreq.entrySet()){
+//			System.out.println(entry.getKey()+"->"+entry.getValue());
+//		}
+//		System.out.println("\nPrinting Tree Map");
+//		//Just a for loop for debugging: printing a tree map
+//		for(Map.Entry<String,Integer> entry: rcpToMsgs.entrySet() ){
 //			System.out.println(entry.getKey()+"->"+entry.getValue());
 //		}
 		//Remember, while finding the lowest occurrences, we need to have complete map built. So 
 		// Can not avoid two loops
 		String mrunpopular ="";
 		int lowestSofar =messages.size(); // Remember, while finding least number of occurrences, initialize lowest so far to the size of the data.
-		for(Entry<String, Integer> entry: msgFreq.entrySet()){
+		for(Entry<String, Integer> entry: recipientToMessageFreq.entrySet()){
 			if(entry.getValue() < lowestSofar){
 				lowestSofar = entry.getValue();
 				mrunpopular = entry.getKey();

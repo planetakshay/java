@@ -8,7 +8,6 @@ class VMsg implements Comparable<VMsg>{
 	}
 	@Override
 	public int compareTo(VMsg vmsg) {		
-		
 		return rcp.compareTo(vmsg.rcp)<0?-1:rcp.compareTo(vmsg.rcp)==0?0:1;
 	}
 }
