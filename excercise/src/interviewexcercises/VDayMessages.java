@@ -23,8 +23,6 @@ import java.util.Map.Entry;
 
 public class VDayMessages {
 
-	
-
 public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		
 		Map<String,Integer> msgFreq = new HashMap<String,Integer>();
