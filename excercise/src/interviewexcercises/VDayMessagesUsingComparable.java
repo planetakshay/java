@@ -26,16 +26,7 @@ import java.util.TreeMap;
  *
  */
 
-class VMsg implements Comparable<VMsg>{
-	public String rcp; // receiver of the message
-	public VMsg(String rcp){
-		this.rcp=rcp;
-	}
-	@Override
-	public int compareTo(VMsg vmsg) {		
-		return rcp.compareTo(vmsg.rcp)<-1?-1:rcp.compareTo(vmsg.rcp)==1?1:0;
-	}
-}
+
 public class VDayMessagesUsingComparable {
 
 	public List<VMsg> generateVDayMessages(int n){
@@ -54,24 +45,36 @@ public class VDayMessagesUsingComparable {
 	
 	
 	
-	public String findLeastPopular(List<VMsg> messages){
-		
+	public String findLeastPopularUsingComparable(List<VMsg> messages){
+		long start,end;
+		start = System.currentTimeMillis();
 		Collections.sort(messages); // Sort the collection
+		end = System.currentTimeMillis();
+		System.out.println("Time to sort = "+(end-start));
+//		for(int i=0;i<messages.size()-1;i++){
+//			System.out.println(i+" "+messages.get(i).rcp);
+//		}
 		int leastSoFar = messages.size(); // somene could receive all the messages. Start with that possiblity since we are interested in minimum
+		
 		int rcpMsg=1; // By default if the receipient is in the list means that at least one message was received.
 		String mostunpopular="";
 		for(int i=0;i<messages.size()-1;i++){
 			if(messages.get(i).rcp.compareTo(messages.get(i+1).rcp)==0  ){
 				rcpMsg++; //if the given rcp and next one are same, then increase the message count
-				if(rcpMsg>leastSoFar){
-					while( ++i<messages.size()-1 && messages.get(i).rcp.compareTo(messages.get(i+1).rcp)==0){}
-					rcpMsg=1;
+				if(i==messages.size()-2){ // Check if we have reached end of collection. if so process messages for last recipient.
+					//System.out.println("i="+i+" For "+messages.get(i).rcp+" Change at +"+i +" This occurrence="+rcpMsg);
+					if(rcpMsg<leastSoFar){  // find out if the last recipient received less messages than the least so far 
+						mostunpopular=messages.get(i).rcp; //if they did, update mostunpopular
+						leastSoFar=rcpMsg; // update least so far variable
+					}
 				}
-			}else{ // if the next one is not same as this recipient that means recipient has changed
+			}else { // if the next one is not same as this recipient that means recipient has changed
+				//System.out.println("i="+i+" For "+messages.get(i).rcp+" Change at +"+i +" This occurrence="+rcpMsg);
 				if(rcpMsg<leastSoFar){  // find out if the last recipient received less messages than the least so far 
 					mostunpopular=messages.get(i).rcp; //if they did, update mostunpopular
 					leastSoFar=rcpMsg; // update least so far variable
 				}
+				//System.out.println("New Least So Far = "+leastSoFar);
 				rcpMsg=1; //recet the counter for processing 
 			}
 		}
@@ -89,7 +92,7 @@ public class VDayMessagesUsingComparable {
 		long start,end;
 		System.out.println("Starting");
 		start = System.currentTimeMillis();
-		System.out.println("Mr Unpopular using Comparable ="+ vdm.findLeastPopular(messages));
+		System.out.println("Mr Unpopular using Comparable ="+ vdm.findLeastPopularUsingComparable(messages));
 		end = System.currentTimeMillis();
 		System.out.println("Time Using Comparable = "+(end-start));
 	}

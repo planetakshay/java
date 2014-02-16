@@ -19,19 +19,12 @@ import java.util.Map.Entry;
  * @author Akshay
  *
  */
+
+
 public class VDayMessages {
 
 	
-	class VMsg{
-		public String msg;
-		public String rcp; // Receipient of the message
-		public String author; // sender of the message
-		
-		VMsg(String rcp){
-			this.rcp=rcp;
-		}
-		
-	}
+
 	public List<VMsg> generateVDayMessages(int n){
 		List<String> rcp = new ArrayList<String>(Arrays.asList("Akshay","Prachi","Samarth","Vrunda","Deodhar"));
 		List<VMsg> messages = new ArrayList<VMsg>();
@@ -46,7 +39,7 @@ public class VDayMessages {
 		}
 		return messages;
 	}
-public String findLeastPopularPerson(List<VMsg> messages){
+public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		
 		Map<String,Integer> msgFreq = new HashMap<String,Integer>();
 		for(int i=0;i<messages.size();i++){
@@ -57,9 +50,9 @@ public String findLeastPopularPerson(List<VMsg> messages){
 			
 			msgFreq.put(messages.get(i).rcp, ++freq);
 		}
-		
+		//Just a for loop for debugging. Shows how many messages for each participant
 //		for(Entry<String, Integer> entry: msgFreq.entrySet()){
-//			System.out.println(entry.getKey()+entry.getValue());
+//			System.out.println(entry.getKey()+"->"+entry.getValue());
 //		}
 		//Remember, while finding the lowest occurrences, we need to have complete map built. So 
 		// Can not avoid two loops
@@ -76,14 +69,24 @@ public String findLeastPopularPerson(List<VMsg> messages){
 	}
 	public static void main(String args[]){
 		VDayMessages vdm = new VDayMessages();
+		VDayMessagesUsingComparable vm = new VDayMessagesUsingComparable();
 		int n = 1000;
-		List<VMsg> messages = vdm.generateVDayMessages(n*1000*20);
-		System.out.println("Starting ");
+		List<VMsg> messages = new ArrayList<VMsg>(); 
+		messages = new GenerateData().generateVDayMessages(n*1000*20,messages,false);
+		System.out.println("Starting to sort using Map: ");
 		long start,end;
 		start = System.currentTimeMillis();
-		System.out.println("Mr Unpopular ="+ vdm.findLeastPopularPerson(messages));
+		System.out.println("Mr Unpopular Using Map ="+ vdm.findLeastPopularPersonUsingMap(messages));
 		end = System.currentTimeMillis();
 		System.out.println("Time Using Map = "+(end-start));
+		System.out.println();
+		System.out.println("Starting to sort using Comparable:");
+		
+		start = System.currentTimeMillis();
+		System.out.println("Mr Unpopular using Comparable ="+ vm.findLeastPopularUsingComparable(messages));
+		end = System.currentTimeMillis();
+		System.out.println("Time Using Comparable = "+(end-start));
+		System.out.println(Integer.MAX_VALUE);
 		
 	}
 	
