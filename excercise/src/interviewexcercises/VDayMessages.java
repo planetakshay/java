@@ -85,9 +85,7 @@ public String findLeastPopularPersonUsingMap(List<VMsg> messages){
 		start = System.currentTimeMillis();
 		System.out.println("Mr Unpopular using Comparable ="+ vm.findLeastPopularUsingComparable(messages));
 		end = System.currentTimeMillis();
-		System.out.println("Time Using Comparable = "+(end-start));
-		System.out.println(Integer.MAX_VALUE);
-		
+		System.out.println("Time Using Comparable = "+(end-start));	
 	}
 	
 }

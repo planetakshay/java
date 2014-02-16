@@ -10,6 +10,7 @@ import java.util.List;
 public class GenerateData {
 
 	public List<VMsg> generateVDayMessages(int n,List<VMsg> messages,boolean printData){
+		System.out.println("Generating "+n+" messages to recipients");
 		List<String> rcp = new ArrayList<String>(Arrays.asList("Akshay","Prachi","Samarth","Vrunda","Deodhar"));
 		while(n-- >0){
 			Collections.shuffle(rcp);
