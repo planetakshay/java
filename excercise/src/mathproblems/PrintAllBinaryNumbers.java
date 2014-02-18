@@ -1,6 +1,12 @@
 package mathproblems;
 
 /*
+ * This was originally a problem that goes like this.
+ * You are given a N x N board. In each square of the board you can put a check mark or not.
+ * Putting one check mark in one square creates one pattern. putting no check mark anywhere is another.
+ * putting two check marks in [2 of N x N board]  is also a pattern and so on.
+ * Print all the patterns that are possible with this approach for N X N board.
+ * 
  * 000 - 0
  * 001 - 1
  * 010 - 2
@@ -13,6 +19,7 @@ package mathproblems;
  * Given n print all binary numbers
  * Or given a a board of game where 1 or zero is a layout, print all layouts.
  * or all combinations of 0 or 1
+ * 
  * 
  */
 public class PrintAllBinaryNumbers {
