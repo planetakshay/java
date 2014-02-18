@@ -8,7 +8,7 @@ package mathproblems;
  * Print all the patterns that are possible with this approach for N X N board.
  * 
  * 000 - 0
- * 001 - 1
+ * 001 - 1	
  * 010 - 2
  * 011 - 3
  * 100 - 4
@@ -58,8 +58,8 @@ public class PrintAllBinaryNumbers {
 		return true;
 	}
 	public static void main(String args[]){
-		
-		int w=5;
+		int N = 3;
+		int w=N*N;
 		int[] array = new int[w];
 		
 		for(int i=0;i<w;i++){
