@@ -31,20 +31,18 @@ public class PrintAllBinaryNumbers {
 		for(int i=array.length-1;i>=0;i--){
 			
 			if(array[i]==0  ){ // if we encounter zero then we need to flip the digit to 1
-				if(!trailingones) { // if all trailing digits are not 1 then just turn the digit ON and return
-					array[i]=1;
-					return array;
-				}else{ // if all trailing digits are 1s then turn on this digit to one and set all lower order bit to 0s
-					array[i]=1; // turn on current bit thats 0
+				array[i]=1; // turn on current bit thats 0	
+				if(trailingones){ // if all trailing digits are ones then set those lower digits to 0
 					while(i<array.length-1){ // set lower order bits to 0
 						array[++i]=0;
 					}
-					return array;
 				}
+				return array;
 			}else if(array[i]==1 && !trailingones){ // if we encounter 1 that means trailing digits are all ones
 				trailingones=true;
 			}
 		}
+		
 		return array;
 	}
 	
@@ -58,7 +56,7 @@ public class PrintAllBinaryNumbers {
 		return true;
 	}
 	public static void main(String args[]){
-		int N = 3;
+		int N = 2;
 		int w=N*N;
 		int[] array = new int[w];
 		
