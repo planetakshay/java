@@ -3,7 +3,7 @@ package SortingAndSearching;
 import java.util.Arrays;
 
 /**
- * Given an array find which element occurs most number of times
+ * Given a SORTED array find which element occurs most number of times
  * 
  * @author Akshay
  *
@@ -55,6 +55,8 @@ public class FindHighestOccuringElement {
 		array = new int[]{2,3,3,4,4,5,5,5,5,8};
 		printResults(array);
 		array = new int[]{2,2,2,2,3,3,4,4,5,5,5,5,5,6,6,7,7,9};
+		printResults(array);
+		array = new int[]{2,2,3,3,4,4,5,6,6,7,7,9,9,9,9,9};
 		printResults(array);
 	}
 }
