@@ -15,16 +15,18 @@ package matrix;
 public class OppositeDiagonalsOfMetrix {
 
 	public static void main (String args[]){
-		int[][] metrix = new int[][]{{1,2,3,4},{4,5,6,7},{7,8,9,10},{11,12,13,14}};
+		int[][] metrix = new int[][]{{1,2,3,4},
+									 {4,5,6,7},
+									 {7,8,9,10},
+									{11,12,13,14}
+								};
 		int length = metrix.length;
 		System.out.println(length);
 		int[] diagonal1 = new int[length];
 		int[] diagonal2 = new int[length];
-		int j=0;
 		for(int i=0;i<length;i++){
-			diagonal1[i]=metrix[i][j]; // increase the column every iteration
-			diagonal2[i]=metrix[i][length-j-1]; // decrease the column count every iteration
-			j++;
+			diagonal1[i]=metrix[i][i]; // increase the column every iteration
+			diagonal2[i]=metrix[i][length-i-1]; // decrease the column count every iteration
 		}
 		for(int i:diagonal1){
 			System.out.print(i+ " ");
