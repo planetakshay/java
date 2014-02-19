@@ -29,7 +29,7 @@ public class LongestSubStringOfUniqueChars {
 					}else{
 							uniqChar.removeAll(uniqChar);
 							lsofar ="";
-							sb = new StringBuilder();
+							sb.delete(0, sb.length());
 							break;
 					}
 					
@@ -104,6 +104,8 @@ public class LongestSubStringOfUniqueChars {
 			System.out.println("Longest substring with unique characters:SAMARTHAKSHAYDEODHAR is  "+longestSubOfUniqueCharacters("SAMARTHAKSHAYDEODHAR"));
 			System.out.println("Longest substring with unique characters: PRACHIDEODHAR is "+longestSubOfUniqueCharacters("PRACHIDEODHAR"));
 			System.out.println("Longest substring with unique characters: a123a45a6 is "+longestSubOfUniqueCharacters("a123a45a6"));
+			System.out.println("Longest substring with unique characters: aksharakshpmnxyydeodharakshpmnxyz is "+longestSubOfUniqueCharacters("aksharakshpmnxyydeodharakshpmnxyz"));
+			
 			test--;
 		}
 		long endp = System.currentTimeMillis();
