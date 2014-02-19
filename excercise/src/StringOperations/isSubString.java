@@ -13,12 +13,12 @@ public class isSubString {
 			
 			for(int i=0;i<s2.length;i++){
 				
-				if(s1[0]==s2[i] && s2.length-i>=s1.length){
-					int originalIndex = i;
-					for(int j=0;j<s1.length;j++,originalIndex++){
-						if(s2[originalIndex]!=s1[j]){
+				if(s1[0]==s2[i] && s2.length-i>=s1.length){ // find a matching character in s2 with first character in s1. once found
+					int originalIndex = i;  // store where the comparision starts for the two strings.
+					for(int j=0;j<s1.length;j++,originalIndex++){   // for length of s1 compare every character
+						if(s2[originalIndex]!=s1[j]){  // if they do not match break
 							break;
-						}else if(j==s1.length-1){
+						}else if(j==s1.length-1){ // if they match and if entire s1 has been compared with s2 [ comparision that started with original index]
 							return true;
 						}
 					}
