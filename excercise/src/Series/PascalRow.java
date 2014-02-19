@@ -1,4 +1,16 @@
 package Series;
+/*
+*
+* 
+*        1
+*       2  2
+*      3  4  3
+*     4  7  7  4
+*    5 13 14 13 5   
+*
+*
+*
+*/
 
 public class PascalRow{
 	
