@@ -8,6 +8,18 @@ package StringOperations;
  */
 public class RemoveDuplicateCharacters {
 	
+public static String removeD(String s){
+		boolean[] ch = new boolean[256];
+		StringBuilder sb = new StringBuilder();
+		for(char c: s.toCharArray()){
+			int schar = c;
+			if(!ch[schar]){
+				ch[schar]=true;
+				sb.append(c);
+			}
+		}
+		return sb.toString();
+	}	
 public static String removeDuplicateCharacters(String s){
 		
 		StringBuilder sb = new StringBuilder();
