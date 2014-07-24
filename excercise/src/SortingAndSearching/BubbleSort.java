@@ -9,19 +9,18 @@ import java.util.Arrays;
  */
 public class BubbleSort {
 	
-	public static void sort(int a[]){
+	public static void sort(int x[]){
 		
-		for(int i=0;i<a.length;i++){
-			
-			for(int j=0;j<a.length;j++){
-				if(a[i]<a[j]){
-					int temp = a[i];
-					a[i] = a[j];
-					a[j]=temp;
-				}
-			}
-			
-		}
+		 int n = x.length;
+		    for (int pass=1; pass < n; pass++) {  // count how many times
+		        // This next loop becomes shorter and shorter
+		        for (int i=0; i < n-pass; i++) {
+		            if (x[i] > x[i+1]) {
+		                // exchange elements
+		                int temp = x[i];  x[i] = x[i+1];  x[i+1] = temp;
+		            }
+		        }
+		    }
 		
 	}
 	
