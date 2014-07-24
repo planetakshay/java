@@ -25,7 +25,6 @@ public class BubbleSort {
 		    }
 		
 	}
-	
 	public static void printarray(int[] a){
 		for(int i: a){
 			System.out.print(i+" ");
