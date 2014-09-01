@@ -6,10 +6,10 @@ import java.util.Stack;
 // Meaning if string has { in it then the next parenthesis can be } or another { 
 
 public class BalancedParenthesis {
-	Stack<Character> stack  = new Stack<Character>();
+	Stack<Character> stack ;
 	
 	public boolean isStringParanthesisBalanced(String s){
-		
+		stack = new Stack<Character>();
 		for(int i=0;i<s.length();i++){
 			char c = s.charAt(i);
 			 
