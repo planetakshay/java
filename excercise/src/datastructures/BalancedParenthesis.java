@@ -52,6 +52,7 @@ public class BalancedParenthesis {
 		System.out.println(bp.isStringParanthesisBalanced("f{ds{d 123}ghgh"));
 		System.out.println(bp.isStringParanthesisBalanced("f(d){{a} s}<>"));
 		System.out.println(bp.isStringParanthesisBalanced("}fdsf{}"));
+		System.out.println(bp.isStringParanthesisBalanced("<<<< {{ }fdfsdf}dfsdfa>fdaff>dsfadsf>dfsdf>"));
 
 	}
 	
