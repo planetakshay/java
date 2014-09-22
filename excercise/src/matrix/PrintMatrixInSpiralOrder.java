@@ -46,13 +46,39 @@ public class PrintMatrixInSpiralOrder {
 		
 	}
 	
+	public static void printInSpiral(int[][] a){
+		
+		int rowStart=0, rowEnd=a.length-1,colStart=0,colEnd = a[0].length-1;
+		
+		while(rowStart<=rowEnd && colStart<=colEnd){
+			int i=rowStart,j=colStart;
+			
+			for(j=colStart;j<=colEnd;j++){
+				System.out.print(a[i][j]+" ");
+			}
+			for(i=rowStart+1,j--;i<=rowEnd;i++){
+				System.out.print(a[i][j]+" ");
+			}
+			for(j=colEnd-1,i--;j>=colStart;j--){
+				System.out.print(a[i][j]+" ");
+			}
+			for(i=rowEnd-1,j++;i>rowStart;i--){
+				System.out.print(a[i][j]+" ");
+			}
+			rowStart++;
+			rowEnd--;
+			colStart++;
+			colEnd--;
+			
+		}
+	}
 	public static void main(String args[]){
 		GenerateData gd = new GenerateData();
 		int [][] a = gd.generateMetrix(5, 2);
 		gd.printMetrix(a);
 		PrintMatrixInSpiralOrder.printArrayInSpiralOrder(a);
-		
-		
+		System.out.println();
+		PrintMatrixInSpiralOrder.printInSpiral(a);
 	}
 	
 }
