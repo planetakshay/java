@@ -10,7 +10,7 @@ public class FindElement extends BasicMatrix {
 	public boolean findElement(int[][] matrix,int elm,int m,int n){
 		int row = 0;
 		int col = n-1;
-		 while(row<m && col >=0){
+		 while(row<m && col >=0){ // make sure row does not exceed m and column does not decrease less than 0 
 			 if(matrix[row][col]==elm){
 				 return true;
 			 }else if(elm > matrix[row][col]){ // if given element is greater increase the row
