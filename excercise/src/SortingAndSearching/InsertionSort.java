@@ -8,14 +8,13 @@ public class InsertionSort {
 		for(int i=0;i<a.length-1;i++){
 			
 			if(a[i]>a[i+1]){
-				int goBackTo=i;
-				while(i>=0 && a[i+1]<a[i] ){//i >=0 is important if we have to move an array element all the way to the begining, we get array index out of bounds
-					int temp=a[i+1];
-					a[i+1]=a[i];
-					a[i]=temp;
-					i--;
+				int m=i; // Store index in to m and then traverse array backward to place the element at the correct position in ascending order 
+				while(m>=0 && a[m+1]<a[m] ){//i >=0 is important if we have to move an array element all the way to the beginning, we get array index out of bounds
+					int temp=a[m+1];
+					a[m+1]=a[m];
+					a[m]=temp;
+					m--;
 				}
-				i=goBackTo;
 			}
 		}	
 	}
