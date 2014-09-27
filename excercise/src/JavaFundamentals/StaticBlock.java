@@ -19,13 +19,14 @@ public class StaticBlock {
 	}
 	
 	StaticBlock(int day){
-		System.out.println("constructor:BlockStatic with day="+day);
+		System.out.println("constructor:StaticBlock with day="+day);
 		this.day=day;
 	}
 
 	public static void main(String args[]){
 		
 		StaticBlock sb = new StaticBlock(25);
+		System.out.println(" ---------------");
 		TestStatic ts = new TestStatic();
 	}
 }

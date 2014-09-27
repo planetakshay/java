@@ -11,7 +11,7 @@ package JavaFundamentals;
 class CoffeeShop{
 	
 	public static void original(){
-		System.out.println("CoffeeShop: Original - Pblic Static Method");
+		System.out.println("CoffeeShop: Original - Public Static Method");
 	}
 	public void regular(){
 		System.out.println("CoffeeShop: Regular - public void method");
