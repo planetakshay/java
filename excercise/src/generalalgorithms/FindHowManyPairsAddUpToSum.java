@@ -48,13 +48,14 @@ public class FindHowManyPairsAddUpToSum {
 		return 0;
 	}
 	public static void main(String args[]){
-		int[] array = new int[]{2,3,6,1,5,3,4,0};
+		int[] array = new int[]{2,3,6,1,5,3,4,0,-2};
 		FindHowManyPairsAddUpToSum findHowManyPairs = new FindHowManyPairsAddUpToSum();
 		for( int i : array){
 			findHowManyPairs.store(i);
 		}
 		System.out.println("Sum = 6. number of pairs that add up to 6 are "+findHowManyPairs.getNumberOfPairs(6));
 		System.out.println("Sum = 4. number of pairs that add up to 4 are "+findHowManyPairs.getNumberOfPairs(4));
+		System.out.println("Sum = 0. number of pairs that add up to 0 are "+findHowManyPairs.getNumberOfPairs(0));
 	}
 	
 	
