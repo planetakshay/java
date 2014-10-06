@@ -10,8 +10,7 @@ public class BinaryToDecimal {
 
 			char c = s.charAt(s.length()-1);
 			s = s.substring(0, s.length()-1);
-			i += Math.pow(2, j) * Integer.parseInt(String.valueOf(c));
-			j++;
+			i += Math.pow(2, j++) * Integer.parseInt(String.valueOf(c));
 		}
 		System.out.println(number+" Result = "+i+"  ");
 		//ConvertDecimalNumberToBinary.printBinary(i);
