@@ -8,7 +8,7 @@ package StringOperations;
 public class substituteTwentyAtSpace {
 
 	public static void main(String args[]){
-		String str = "This is a string with spaces.";
+		String str = "This is a string with spaces. ";
 		String newStr = substituteWithStringBuilder(str);
 		System.out.println(newStr);
 		
@@ -16,7 +16,7 @@ public class substituteTwentyAtSpace {
 	
 	public static String substituteWithStringBuilder(String str){
 		StringBuilder sb = new StringBuilder();
-		for(int i=0;i<str.length()-1;i++){
+		for(int i=0;i<str.length();i++){
 			char c = str.charAt(i);
 			if(String.valueOf(c).equalsIgnoreCase(" ")){
 				sb.append("%20");
@@ -26,26 +26,5 @@ public class substituteTwentyAtSpace {
 			}
 		}
 		return sb.toString();
-	}
-	
-	public static String substituteInPlace(char[] str,int length){
-		int spacecount=0;
-		for(int i=0;i<str.length;i++){
-			
-			if(str[i]==' '){
-				++spacecount;
-			}
-		}
-		
-		int newLength = length+ spacecount*2;
-		str[newLength] ='\0';
-		
-		for(int i=0;i<str.length-1;i++){
-			if(str[i]==' '){
-	//			str[i]
-			}
-		}
-		
-		return "";
 	}
 }
