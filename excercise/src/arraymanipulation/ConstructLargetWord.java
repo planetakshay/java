@@ -26,43 +26,74 @@ import java.util.Set;
  *
  */
 public class ConstructLargetWord {
+//	
+//	public static Set<String> biggestWord(String[] words,char[] ch){
+//		
+//		String biggestWord="";
+//		Set<String> candidateWords = new LinkedHashSet<String>(){};
+//		
+//		for(String word: words){
+//			StringBuilder sbword = new StringBuilder(word); //initialize string builder with word
+//			StringBuilder sbch = new StringBuilder(String.valueOf(ch)); // convert the character array in to string. initialize the string builder with that
+//			boolean allmatch = false; //match = false
+//			for(int i=0;i<word.length();i++){
+//				
+//				char c = word.charAt(i);   // get each character of word 
+//				int indexc = sbch.indexOf(c+"");  // find indexes in word and character array string
+//				int indexw = sbword.indexOf(c+""); //
+//				if(indexc == -1){ // if the character from word is not even in character array - that word can not be formed. so break with allmatch=false;
+//					break;		// This will also be -1 when word is bigger than total characters in array. even then word can not be considered as created using character array so break with allmatch=false;
+//				}
+//				else{ // if the character is contained in word and character array string then delete it
+//					sbword.deleteCharAt(indexw);
+//					sbch.deleteCharAt(indexc);
+//				}
+//				if(sbword.length()==0){  // Since we can only match characters from char array once, lets check if all characters from word have been matched and deleted.
+//					allmatch = true;     // if all characters have been deleted then allmatched=true and break.
+//					break;
+//				}
+//			}
+//			if(allmatch && word.length()>biggestWord.length() ){
+//				candidateWords.removeAll(candidateWords);
+//				candidateWords.add(word);
+//				biggestWord=word;
+//			}
+//			if(allmatch && word.length()==biggestWord.length() ){
+//				candidateWords.add(word);
+//			}
+//		}
+//		return  candidateWords;
+//	}
 	
-	public static Set<String> biggestWord(String[] words,char[] ch){
-		
-		String biggestWord="";
+	public static Set<String> biggestWord(String[]  words, char[] ch){
 		Set<String> candidateWords = new LinkedHashSet<String>(){};
 		
-		for(String word: words){
-			StringBuilder sbword = new StringBuilder(word); //initialize string builder with word
-			StringBuilder sbch = new StringBuilder(String.valueOf(ch)); // convert the character array in to string. initialize the string builder with that
-			boolean allmatch = false; //match = false
-			for(int i=0;i<word.length();i++){
-				
-				char c = word.charAt(i);   // get each character of word 
-				int indexc = sbch.indexOf(c+"");  // find indexes in word and character array string
-				int indexw = sbword.indexOf(c+""); //
-				if(indexc == -1){ // if the character from word is not even in character array - that word can not be formed. so break with allmatch=false;
-					break;		// This will also be -1 when word is bigger than total characters in array. even then word can not be considered as created using character array so break with allmatch=false;
-				}
-				else{ // if the character is contained in word and character array string then delete it
-					sbword.deleteCharAt(indexw);
-					sbch.deleteCharAt(indexc);
-				}
-				if(sbword.length()==0){  // Since we can only match characters from char array once, lets check if all characters from word have been matched and deleted.
-					allmatch = true;     // if all characters have been deleted then allmatched=true and break.
+		String biggestSoFar = null;
+		for(int i=0;i<words.length;i++){
+			// if the 
+			if(biggestSoFar!=null && words[i].length()<biggestSoFar.length()){
+				continue;
+			}
+			StringBuilder sb = new StringBuilder(String.valueOf(ch));
+			for(int j = 0 ; j<words[i].length();j++){
+				char ch1 = words[i].charAt(j);
+				int index = sb.indexOf(ch1+"");
+				if(index==-1){
 					break;
+				}else{
+					sb.deleteCharAt(index);
 				}
-			}
-			if(allmatch && word.length()>biggestWord.length() ){
-				candidateWords.removeAll(candidateWords);
-				candidateWords.add(word);
-				biggestWord=word;
-			}
-			if(allmatch && word.length()==biggestWord.length() ){
-				candidateWords.add(word);
+				if(j==words[i].length()-1){
+					if(biggestSoFar !=null && j>biggestSoFar.length()-1  ){
+						candidateWords.removeAll(candidateWords);
+					}
+					biggestSoFar = words[i];
+					candidateWords.add(biggestSoFar);
+				}
 			}
 		}
-		return  candidateWords;
+		
+		return candidateWords;
 	}
 	
 	public static void main(String args[]){
