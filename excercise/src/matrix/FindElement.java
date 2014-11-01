@@ -11,6 +11,7 @@ public class FindElement extends BasicMatrix {
 		int row = 0;
 		int col = n-1;
 		 while(row<m && col >=0){ // make sure row does not exceed m and column does not decrease less than 0 
+			 System.out.println(matrix[row][col]);
 			 if(matrix[row][col]==elm){
 				 return true;
 			 }else if(elm > matrix[row][col]){ // if given element is greater increase the row
@@ -18,6 +19,7 @@ public class FindElement extends BasicMatrix {
 			 }else{ //otherwise decrease the column.
 				 col--;
 			 }
+			
 		 }
 		
 		return false;
@@ -29,7 +31,7 @@ public class FindElement extends BasicMatrix {
 		printMatrix(matrix, 4, 4);
 		FindElement findElement = new FindElement();
 		System.out.println("\nElement 120 is found: "
-				+ findElement.findElement(matrix, 120, 4, 4));
+				+ findElement.findElement(matrix, 200, 4, 4));
 
 	}
 }
