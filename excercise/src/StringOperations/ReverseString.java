@@ -28,6 +28,9 @@ public class ReverseString {
 			}
 			else{
 				wEnd++;
+				if(i==s.length-2){
+					ReverseString.reverse(s,wStart,wEnd);
+				}
 			}
 		}
 	}
