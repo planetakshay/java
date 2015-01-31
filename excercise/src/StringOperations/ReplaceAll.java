@@ -1,6 +1,7 @@
 package StringOperations;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -51,6 +52,24 @@ public class ReplaceAll {
 		return String.valueOf(result);
 	}
 	
+	//Following
+	public static String replaceAll(String s1,String toBeReplaced,String toBeReplacedWith ){
+		List<Integer> indexes = getSubStringIndexes(toBeReplaced.toCharArray(),s1.toCharArray());
+		StringBuilder sb =new StringBuilder();
+		for(int i=0;i<s1.length();i++){
+			if(indexes.contains(i)){
+				for(int j=0;j<toBeReplacedWith.length();j++){
+					sb.append(toBeReplacedWith.charAt(j));
+				}
+				i+=toBeReplaced.length()-1;
+			}else{
+				sb.append(s1.charAt(i));
+			}
+		}
+		
+		return sb.toString();
+	}
+	
 	public static void main(String args[]){
 		String s1 = "Today is Sunday.";
 		String tobeReplaced = "day";
@@ -59,22 +78,30 @@ public class ReplaceAll {
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
 		System.out.println("--");
+		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
+		System.out.println("--");
 		
 		s1 = "Today is Sunday.Which day is tomorrow?";
 		tobeReplaced = "day";
 		replaceWith = "**";
 		System.out.println("In-> "+s1);
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
+		
+		System.out.println("--With Array--");
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
-		System.out.println("--");
+		System.out.println("--With String Builder--");
+		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
+		
 		
 		s1 = "Today is day.";
 		tobeReplaced = "day";
 		replaceWith = "*This is just insanely long string*";
 		System.out.println("In-> "+s1);
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
+		System.out.println("--With Array--");
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
-		System.out.println("--");
+		System.out.println("--With String Builder--");
+		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
 		
 		s1 = "Today is day.";
 		tobeReplaced = "day";
@@ -82,6 +109,8 @@ public class ReplaceAll {
 		System.out.println("In-> "+s1);
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
+		System.out.println("--");
+		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
 		System.out.println("--");
 		
 		s1 = "Today is day.";
@@ -90,6 +119,8 @@ public class ReplaceAll {
 		System.out.println("In-> "+s1);
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
+		System.out.println("--");
+		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
 		System.out.println("--");
 		
 	}
