@@ -10,7 +10,7 @@ package arraymanipulation;
  * @author Akshay
  *
  */
-public class MoveZerosToTheWrite {
+public class MoveZerosToTheRight {
 
 	public static int[] moveZerosToRight(int[] array){
 		int startIndex=0;
