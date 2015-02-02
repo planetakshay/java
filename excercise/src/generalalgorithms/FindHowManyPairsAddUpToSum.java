@@ -14,7 +14,7 @@ import java.util.Set;
  * Given an unsorted array of integers and a given sum find number of pairs in the array
  * that would add up to that sum
  * 
- * @author akshayd094
+ * @author Akshay
  *
  */
 public class FindHowManyPairsAddUpToSum {
