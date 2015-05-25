@@ -2,9 +2,16 @@ package datastructures;
 
 import java.util.ArrayList;
 
+class File{
+	String name;
+	File(String name){
+		this.name=name;
+	}
+}
+
 class Dir{
 	
-	private ArrayList<String> files = new ArrayList<String>();
+	private ArrayList<File> files = new ArrayList<File>();
 	private ArrayList<Dir> dirs = new ArrayList<Dir>();
 	String name;
 	
@@ -14,10 +21,10 @@ class Dir{
 	public void addDir(Dir d){
 		dirs.add(d);
 	}
-	public void addFile(String f){
+	public void addFile(File f){
 		files.add(f);
 	}
-	public ArrayList<String> getFiles(){
+	public ArrayList<File> getFiles(){
 		return this.files;
 	}
 	public ArrayList<Dir> getDirs(){
@@ -31,23 +38,23 @@ public class FileSystem {
 	
 	public static void main(String args[]){
 		
-		Dir l1dir1 = new Dir("l1dir1");
+		Dir l1dir1 = new Dir("Vinayak Deodhar");
 		Dir root = l1dir1;
 		
-		l1dir1.addFile("f1l1dir1");
-		l1dir1.addFile("f2l1dir1");
+		l1dir1.addFile(new File("Sindhu"));
+		l1dir1.addFile(new File("Sanjay"));
 		
-		Dir l2dir1 = new Dir("l2dir1");
+		Dir l2dir1 = new Dir("Sanjay Deodhar");
 		l1dir1.addDir(l2dir1);
-		l2dir1.addFile("f1l2dir1");
+		l2dir1.addFile(new File("Kshama"));
 		
-		Dir l2dir2 = new Dir("l2dir2");
+		Dir l2dir2 = new Dir("Lata Karodi");
 		l1dir1.addDir(l2dir2);
-		l2dir2.addFile("f1l2dir2");
-		l2dir2.addFile("f2l2dir2");
+		l2dir2.addFile(new File("Anna"));
+		l2dir2.addFile(new File("Vishal"));
 		
-		Dir l3dir1 = new Dir("l3dir1");
-		l2dir2.addDir(l3dir1);
+		Dir l3dir1 = new Dir("Akshay Deodhar");
+		l2dir1.addDir(l3dir1);
 		printDirsAndFiles(l1dir1);
 	}
 	
@@ -89,10 +96,10 @@ public class FileSystem {
 	}
 	public static void printFiles(Dir d){
 		if(d.getFiles().size() !=0){
-			ArrayList<String> files = d.getFiles();
-			for(String f: files){
+			ArrayList<File> files = d.getFiles();
+			for(File f: files){
 				//System.out.print(d.name +"->"+f+",");
-				System.out.print(f+",");
+				System.out.print("Printing File Name  "+f.name+","+"\n");
 			}
 		}
 		else if(d.getFiles().size() ==0){
