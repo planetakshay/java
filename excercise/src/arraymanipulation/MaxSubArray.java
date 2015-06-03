@@ -2,6 +2,7 @@ package arraymanipulation;
 
 public class MaxSubArray {
 	
+	//Adding comment
 	public static void main(String[] args) {
 
 		int[] intArr = { -3, -1, -1, -1, -1, -1, -2, -5, -3, -2 };
