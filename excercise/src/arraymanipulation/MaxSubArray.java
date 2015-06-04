@@ -5,9 +5,17 @@ public class MaxSubArray {
 	//Adding comment.
 	public static void main(String[] args) {
 
-		int[] intArr = { -3, -1, -1, -1, -1, -1, -2, -5, -3, -2 };
+		
+		
+		int[] intArr1 = { -3, -1, -1, -1, -1, -1, -2, -5, -3, -2 };
+		int[] intArr2 = { -3, -1, -1, -1, -1, -1, -2, 1,2, -3, -2 };
 
-		findMaxSubArray(intArr);
+		int[][] data = {intArr1,intArr2};
+		for(int[] ary: data){
+			findMaxSubArray(ary);
+			System.out.println("Next Set ");
+		}
+		
 	}
 	
 	private static void findMaxSubArray(int[] intArr) {
