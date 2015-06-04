@@ -71,14 +71,14 @@ public class ConstructLargetWord {
 			if(biggestSoFar!=null && words[i].length()<biggestSoFar.length()){
 				continue;
 			}
-			StringBuilder sb = new StringBuilder(String.valueOf(ch));
+			StringBuilder charactersInArray = new StringBuilder(String.valueOf(ch));
 			for(int j = 0 ; j<words[i].length();j++){
-				char ch1 = words[i].charAt(j);
-				int index = sb.indexOf(ch1+"");
+				char charOfWord = words[i].charAt(j);
+				int index = charactersInArray.indexOf(charOfWord+"");
 				if(index==-1){
 					break;
 				}else{
-					sb.deleteCharAt(index);
+					charactersInArray.deleteCharAt(index);
 				}
 				if(j==words[i].length()-1){
 					if(biggestSoFar !=null && j>biggestSoFar.length()-1  ){
