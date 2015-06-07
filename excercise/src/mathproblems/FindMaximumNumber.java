@@ -85,11 +85,16 @@ public class FindMaximumNumber {
 		
 	
 	public static void main(String ary[]){
-		int[] array = {3,1,4,7,6,3};
-		System.out.println(getMax(array));
-		System.out.println(getTwoMax(array));
-		System.out.println(getTwoMaxOneForLoop(array));
+		//max1 is largest number, max2 is second largest 
+		//TestDat - 1. max 2 is to the right of max 1, 2. max2 is to the left of max 1, 3. only two numbers 
+		//4. negative numbers and 0 with max1 and max2 both positive 5. max1 positive max2 negative
+		int[][] testData = {{3,1,4,7,6,3},{3,1,4,6,7,9,0},{4,0},{-3,-4,-4,3,0},{-3,-4,-4,3,-10}};
 		
+		for(int[] array: testData){
+			 for(int i: array) System.out.print( " "+i+"" );
+			 System.out.println();
+			System.out.println(getTwoMaxOneForLoop(array));
+		}
 	}
 	
 }
