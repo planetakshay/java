@@ -7,6 +7,10 @@ import java.util.List;
  * 
  * Given an integer array find maximum number in the array
  * 
+ * Also given an integer array find the two maximum number
+ * max1 is maximum / largest number
+ * max2 is second largest number
+ * 
  * @author akshayd094
  *
  */
@@ -61,12 +65,16 @@ public class FindMaximumNumber {
 		int max2=Math.min(ary[0], ary[1]);
 		int diff = Math.abs(max1-max2);	
 		for(int i=1;i<ary.length;i++){
-			if(ary[i] > max2 && ary[i] <max1){
+			
+			if(ary[i] > max2 && ary[i] <max1){ // if we find a value thats between max2 and max1 then we only need to update max2.
 				max2 = ary[i];
-				continue;
+				continue; //We do not need any more processing of this array element - so skip the for loop
 			}
-			if(ary[i] > max1){
+			if(ary[i] > max1){ //If we find a number thats greater than max1 then we need to update both of our values.
+				
+				max2 = max1;
 				max1 = ary[i];
+				
 			}
 		}
 		
