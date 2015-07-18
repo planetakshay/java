@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/*
+/* 
+ * 
  *given 2 arrays wrds[] , chars[] as an input to a function such that 
  *wrds[] = [ "abc" , "baa" , "caan" , "an" , "banc" ] 
  *chars[] = [ "a" , "a" , "n" , "c" , "b"] 
