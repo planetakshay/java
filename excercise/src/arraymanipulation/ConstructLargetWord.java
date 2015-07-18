@@ -7,6 +7,8 @@ import java.util.Set;
 
 /* 
  * 
+ * 
+ * 
  *given 2 arrays wrds[] , chars[] as an input to a function such that 
  *wrds[] = [ "abc" , "baa" , "caan" , "an" , "banc" ] 
  *chars[] = [ "a" , "a" , "n" , "c" , "b"] 
@@ -67,8 +69,8 @@ public class ConstructLargetWord {
 //	}
 	
 	public static Set<String> biggestWord(String[]  words, char[] ch){
+		//Just a comment
 		Set<String> candidateWords = new LinkedHashSet<String>(){};
-		
 		String biggestSoFar = null;
 		for(int i=0;i<words.length;i++){
 			// if the 
