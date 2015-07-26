@@ -69,7 +69,7 @@ public class ConstructLargetWord {
 //	}
 	
 	public static Set<String> biggestWord(String[]  words, char[] ch){
-		//Just a comment
+		
 		Set<String> candidateWords = new LinkedHashSet<String>(){};
 		String biggestSoFar = null;
 		for(int i=0;i<words.length;i++){
