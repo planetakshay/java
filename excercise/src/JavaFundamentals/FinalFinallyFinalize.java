@@ -35,7 +35,7 @@ class SubClassOfClassWithFinalVariables extends ClassWithFinalVariables{
 		super(b, i);
 		// TODO Auto-generated constructor stub
 	}
-	/* final method can not be overloaded in a subclass
+	/* final method can not be overridden in a subclass
 //	public String getApples(){ 
 //		
 //		return "";
