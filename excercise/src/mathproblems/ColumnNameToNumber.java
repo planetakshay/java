@@ -22,7 +22,10 @@ public class ColumnNameToNumber {
 		for(int i=sxCol.length(); i>0;i--){
 			char _c = sxCol.charAt(i-1); // Get the last character
 			/*
-			 * 26^reverse_index_
+			// Function => (26 ^ reversed_char_index) * char_value
+			// A = 1 ------ Z = 26 ------ AA = 27 ------ AZ = 54
+			// 64 because Ascii value of Capital letters is 65 and onwards so
+			// for 'A' we will get value 1 for B 2 and so on
 			 * 
 			 */
 			result += Math.pow(26, sxCol.length()-i) * (_c-64);
