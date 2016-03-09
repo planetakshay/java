@@ -8,7 +8,7 @@ public class LRUCache<K,V> extends LinkedHashMap<K,V> {
 	public static final long serialVersionUID = -4334343;
 	int size;
 	private LRUCache(int size){
-		super(size,0.75f,true);
+		super(size,0.75f,true); // initial size, load factor and - "true" is for access order - "false" would be for insertion order 
 		this.size = size;
 	}
 	public static <K,V> LRUCache<K,V> newInstance(int size){
