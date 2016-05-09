@@ -14,12 +14,12 @@ public class CanStringFormPalindrome {
 		
 		for(int i=0;i<((str.length()/2)+1);i++){ //We only need to traverse the loop str.lengh/2 times since we delete duplicate characters.
 			if(sb.length()>0){
-				char ch = sb.charAt(0); 
-				sb.deleteCharAt(0); //Delete the character at 0th index and store it in ch. next find if its there in the string.
-				if(sb.indexOf(""+ch)!=-1){
-					sb.deleteCharAt(sb.indexOf(""+ch)); //If there is a similar character in the string, just delete that one
-				}else if(!oneOddCharterFound){
-					oneOddCharterFound=true; // First unique character found. For a Palindrome, there can only be one odd character.
+				char ch = sb.charAt(0); //Get the first character
+				sb.deleteCharAt(0); //Delete the first character  
+				if(sb.indexOf(""+ch)!=-1){ // If the same character is found again
+					sb.deleteCharAt(sb.indexOf(""+ch)); // Delete that character too
+				}else if(!oneOddCharterFound){ //If the same character is not found store it.
+					oneOddCharterFound=true; // First unique character found. 
 				}else if(oneOddCharterFound){
 					return false; //Looks like there are two unique (i.e. only one occurrence )characters // As soon as we find second unique characters algorithm returns
 				}
@@ -51,16 +51,22 @@ public class CanStringFormPalindrome {
 		return  (oddCharacters==1 || oddCharacters==0) ? true:false;
 	}
 	public static void main(String args[]){
-		String[] palindromes = new String[]{"malayalam","dad","dadd","perpe","perrrpe","erthyu","PAAP","AKSSKQ"};
-		
+		String[] palindromes = new String[]{"ABA","malayalam","dad","dadd","perpe","perrrpe","erthyu","PAAP","AKSSKQ"};
+		long a = System.currentTimeMillis();
 		System.out.println("\nAkshay's solution\n");
 		for(String p: palindromes){
 			System.out.println("String= "+p+" "+ canStringFormPalindrome(p));
 		}
+		long b = System.currentTimeMillis();
+		
+		System.out.println("\nAkshay's solution took milliseconds\n "+  (b-a));
+		a = System.currentTimeMillis();
 		System.out.println("\nRayan's solution\n");
 		for(String p: palindromes){
 			System.out.println("String= "+p+" "+ canStringFormPalindromeUsingMap(p));
 		}
+		b = System.currentTimeMillis();
+		System.out.println("\nRayan's solution took milliseconds\n "+ (b-a));
 	}
 
 }
