@@ -17,6 +17,7 @@ public class FindSecondSmallestInteger {
 	static int smallest,secondSmallest;
 	
 	public static void setVariables(int i,int j){
+		//Set values for initially 
 		if(i<=j){
 			smallest=i;
 			secondSmallest=j;
@@ -29,15 +30,18 @@ public class FindSecondSmallestInteger {
 	public static int findSecondSmallest(int[] values){
 		
 		int i=0;
+		//Initially find who is smallest and second smallest in first two values of the array.
 		setVariables(values[i],values[i+1]);
 		
+		//Now iterate over values starting third element in array
 		for(i=2;i<values.length;i++){
+			//If array element is smallest then change smallest as well as second smallest
 			if(values[i]<smallest){
 				secondSmallest=smallest;
 				smallest=values[i];
 				
-			}
-			if(values[i]>smallest && values[i]<secondSmallest){
+			}//else if array element falls between smallest and second smallest then only change secondSmallest value
+			else if(values[i]>smallest && values[i]<secondSmallest){
 				secondSmallest=values[i];
 			}
 		}		
