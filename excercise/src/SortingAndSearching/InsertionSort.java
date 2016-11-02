@@ -22,6 +22,7 @@ public class InsertionSort {
 		for(int i: a){
 			System.out.print(i+" ");
 		}
+		System.out.println();
 	}
 	public static void main(String args[]){
 		int[] a = new int[]{4,6,45,10,8};
