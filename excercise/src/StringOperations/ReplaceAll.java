@@ -1,4 +1,4 @@
-package StringOperations;
+	package StringOperations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,9 +58,7 @@ public class ReplaceAll {
 		StringBuilder sb =new StringBuilder();
 		for(int i=0;i<s1.length();i++){
 			if(indexes.contains(i)){
-				for(int j=0;j<toBeReplacedWith.length();j++){
-					sb.append(toBeReplacedWith.charAt(j));
-				}
+				sb.append(toBeReplacedWith);
 				i+=toBeReplaced.length()-1;
 			}else{
 				sb.append(s1.charAt(i));
@@ -108,8 +106,9 @@ public class ReplaceAll {
 		replaceWith = "";
 		System.out.println("In-> "+s1);
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
+		System.out.println("--With Array--");
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
-		System.out.println("--");
+		System.out.println("--With String Builder--");
 		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
 		System.out.println("--");
 		
@@ -118,8 +117,9 @@ public class ReplaceAll {
 		replaceWith = "";
 		System.out.println("In-> "+s1);
 		System.out.println("replacing "+tobeReplaced +" with "+replaceWith);
+		System.out.println("--With Array--");
 		System.out.println(replaceAll(s1.toCharArray(),tobeReplaced.toCharArray(),replaceWith.toCharArray()));
-		System.out.println("--");
+		System.out.println("--With String Builder--");
 		System.out.println(replaceAll(s1,tobeReplaced,replaceWith));
 		System.out.println("--");
 		
