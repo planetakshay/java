@@ -21,7 +21,7 @@ public class FindHighestOccuringElement {
 		}
 		System.out.println();
 		
-		int majorIndex=0;
+		int majorIndex=0; //index at which highest occuring element starts
 		int maxCountSofar=0;
 		int currentElmCount=1;
 		//note that array traversal starts with 1. Since array[i-1] could result in error if i=0;
@@ -39,7 +39,7 @@ public class FindHighestOccuringElement {
 			}
 		}
 		System.out.println("maxCount="+maxCountSofar);
-		System.out.println(array[majorIndex]);
+		System.out.println("Index at which it starts "+majorIndex);
 		return majorIndex;
 	}
 	public static void printResults(int[]array){
