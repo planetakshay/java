@@ -1,5 +1,7 @@
 package interviewexcercises.orgconflict;
 
+import org.junit.Assert;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -24,6 +26,7 @@ import java.util.List;
 public class Company {
 
 	List<Employee> employees;
+	public static Company intuit = new Company();
 	//SBG ---------------------------------
 	//ICs
 	Employee akshay = new Employee(new HashSet<>(),"Akshay",0);
@@ -117,36 +120,27 @@ public class Company {
 		return resolver;
 	}
 
+	public static  void validations(Employee a, Employee b, String resolverFirstName){
+
+		Employee resolver = intuit.resolveConflict(a,b);
+		System.out.println("Conflict between " + a.getFirstName()+" and " +b.getFirstName() +" -> resolver = "+resolver.toString());
+		Assert.assertTrue("Expected Resolver = "+ resolverFirstName + " Actual Resolver = " + resolver.getFirstName(),resolver.getFirstName().equalsIgnoreCase(resolverFirstName));
+	}
+
 	public static void main(String args[]){
-		Company intuit = new Company();
 		intuit.createOrg();
-		Employee resolver = intuit.resolveConflict(intuit.peter,intuit.rick);
-		System.out.println("Conflict - peter and rick - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.peter,intuit.aijaz);
-		System.out.println("Conflict - peter and aijaz - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.peter,intuit.anil);
-		System.out.println("Conflict - peter and Anil - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.peter,intuit.vp1);
-		System.out.println("Conflict - peter and Vp1 - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.peter,intuit.sujeeth);
-		System.out.println("Conflict - peter and Sujeeth - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.peter,intuit.vp2);
-		System.out.println("Conflict - peter and vp2 - resolver = "+resolver.toString());
-
-		resolver = intuit.resolveConflict(intuit.peter,intuit.ceo);
-		System.out.println("Conflict - peter and ceo - resolver = "+resolver.toString());
-
-		resolver = intuit.resolveConflict(intuit.raja,intuit.peter);
-		System.out.println("Conflict - peter and raja - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.aijaz,intuit.archana);
-		System.out.println("Conflict - aijaz and archana - resolver = "+resolver.toString());
-
-		resolver = intuit.resolveConflict(intuit.seema,intuit.ojas);
-		System.out.println("Conflict - seema and ojas - resolver = "+resolver.toString());
-
-		resolver = intuit.resolveConflict(intuit.rick,intuit.aijaz);
-		System.out.println("Conflict - rick and aijaz - resolver = "+resolver.toString());
-		resolver = intuit.resolveConflict(intuit.archana,intuit.seema);
-		System.out.println("Conflict - archana and seema - resolver = "+resolver.toString());
+		validations(intuit.peter,intuit.rick,"Anil");
+		validations(intuit.peter,intuit.aijaz,"SVP1");
+		validations(intuit.peter,intuit.anil,"Anil");
+		validations(intuit.peter,intuit.vp1,"VP1");
+		validations(intuit.peter,intuit.sujeeth,"SVP1");
+		validations(intuit.peter,intuit.vp2,"SVP1");
+		validations(intuit.peter,intuit.ceo,"CEO");
+		validations(intuit.raja,intuit.peter,"Anil");
+		validations(intuit.aijaz,intuit.archana,"SVP1");
+		validations(intuit.seema,intuit.ojas,"CEO");
+		validations(intuit.rick,intuit.aijaz,"SVP1");
+		validations(intuit.sujeeth,intuit.anilc,"Anilc");
+		validations(intuit.archana,intuit.seema,"Anil");
 	}
 }
