@@ -11,16 +11,9 @@ public class Employee {
 
 
 
-
 	public Set<Employee> directReports;
 	private Employee manager;
-
-
-
 	public String firstName;
-
-
-
 	private int level;
 
 	public String getFirstName() {
