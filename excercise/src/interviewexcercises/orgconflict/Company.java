@@ -18,7 +18,10 @@ import java.util.List;
  *  	Seema     Archana   	|  			Aijaz                                     Ojas [ IC ]
  *  Peter,Akshay   Rick,Raja 	|  			Sujeeth
  *
+ * Problem Description: any two employees in the company can have conflict. find their common manager who would then
+ * be able to solve the conflict.
  *
+ *  For Example: Rick,Akshay -> Anil   Seema,Archana->Anil, Peter,Akshay -> Seema
  */
 public class Company {
 
