@@ -31,7 +31,7 @@ public class Company {
 	//SBG ---------------------------------
 	//platform
 	//ICs
-	Employee akshay = new Employee(new HashSet<>(),"Akshay",0);
+	Employee akshay = new Employee(new HashSet<Employee>(),"Akshay",0);
 	Employee peter = new Employee(new HashSet<Employee>(),"Peter",0);
 	Employee rick = new Employee(new HashSet<Employee>(),"Rick",0);
 	Employee raja = new Employee(new HashSet<Employee>(),"Raja",0);
