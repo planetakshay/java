@@ -50,7 +50,7 @@ public class FindMissingNumbersInArray {
 		Map<Integer,Boolean> freqMap = new HashMap<Integer,Boolean>();
 		int max=0;
 		for(int i=0;i<a.length;i++ ){
-			if(a[i]>max){
+			if(a[i]>max){ // This max variable is to ultimately find out what the last number in array is. This is used in the for loop next that prints the missing numbers
 				max=a[i];
 			}
 			if(!freqMap.containsKey(a[i])){
