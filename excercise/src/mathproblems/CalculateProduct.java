@@ -12,26 +12,21 @@ Amazon - Phone 2014
 
 
     public int multiply(Integer a,Integer b){
-        if(a==null || b==null) return 0;
-        if(a==0 || b==0  ) return 0;
-        
+        if(a==null || b==null || a==0 || b== 0) return 0;
+
         int product = 0;
         boolean isProductNegative = false;
-        if((a<0 && b>0) || (a>0 && b<0)) {
-            isProductNegative = true;
-        }
+        if((a<0 && b>0) || (a>0 && b<0)) isProductNegative=true;
         
-        if(!isProductNegative)  {      
-            for(int i=1;i<=Math.abs(b);i++){
-                product = product + Math.abs(a);
-            }
-        }else{
-             for(int i=1;i<=Math.abs(b);i++){
-                product = product - Math.abs(a);
-            }    
+        for(int i=1;i<=Math.abs(b);i++){
+
+            if(!isProductNegative)
+            	product = product + Math.abs(a);
+			else
+				product = product - Math.abs(a);
+
         }
         return product;
-        
     }
     
     public static void main(String args[]){

@@ -37,7 +37,7 @@ package StringOperations;
 	            "45 56", //  expected: 4556
 	            "3434344445555343434343434334", // number larger than can be stored in an Integer EXPECTED - exception
 	            "null", // Null string expected: 0
-	            String.valueOf(null), // String representation of null  expected: 0
+	           // String.valueOf(null), // String representation of null  expected: 0
 	            "3.56", // expected: 3
 	            "-34.44", // expted:-34
 	            "34...43",
