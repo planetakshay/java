@@ -2,8 +2,6 @@ package SortingAndSearching;
 
 import junit.framework.Assert;
 
-
-
 /*
  * Write a method to find the second-smallest integer in an array of integers.
  * Use Junit tests to exercise the method.
@@ -16,23 +14,14 @@ import junit.framework.Assert;
 public class FindSecondSmallestInteger {
 	static int smallest,secondSmallest;
 	
-	public static void setVariables(int i,int j){
-		//Set values for initially 
-		if(i<=j){
-			smallest=i;
-			secondSmallest=j;
-		}else{
-			smallest=j;
-			secondSmallest=i;
-		}
-		
-	}
+
 	public static int findSecondSmallest(int[] values){
 		
 		int i=0;
 		//Initially find who is smallest and second smallest in first two values of the array.
-		setVariables(values[i],values[i+1]);
-		
+
+		smallest = Math.min(values[i],values[i+1]);
+		secondSmallest = Math.max(values[i],values[i+1]);
 		//Now iterate over values starting third element in array
 		for(i=2;i<values.length;i++){
 			//If array element is smallest then change smallest as well as second smallest
