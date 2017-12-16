@@ -4,7 +4,6 @@ import org.junit.Assert;
 
 import java.util.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -129,7 +128,7 @@ public class Company {
 	}
 
 
-	public  Employee resolveConflictViaDirectReports(Employee a,Employee b){
+	public  Employee resolveConflictViaTraversingLevels(Employee a,Employee b){
 		Employee resolver =null;
 		List<Employee> leadersOfA = new LinkedList<>();
 		//Basic: If both employees have the same manager, their manager resolves the conflict
@@ -179,8 +178,8 @@ public class Company {
 		System.out.print("resolveConflictViaLevelAndGetManager: ");
 		printValidations(a,b,intuit.resolveConflictViaLevelAndGetManager(a,b),resolverFirstName);
 		//Second method.
-		System.out.print("resolveConflictViaDirectReports:      ");
-		printValidations(a,b,intuit.resolveConflictViaDirectReports(a,b),resolverFirstName);
+		System.out.print("resolveConflictViaTraversingLevels:      ");
+		printValidations(a,b,intuit.resolveConflictViaTraversingLevels(a,b),resolverFirstName);
 	}
 
 	//Print the complete organization
