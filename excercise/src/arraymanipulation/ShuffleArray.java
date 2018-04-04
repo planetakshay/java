@@ -24,14 +24,10 @@ class ShuffleAnArray {
 	int[] nums;
 	public ShuffleAnArray(int[] nums) {
 		this.nums = nums;
-		for(int i=0;i< nums.length;i++){
-			map.put(i,nums[i]);
-		}
-
 	}
 
-	private int getRandom(){
-		return (int)Math.floor(Math.random()*nums.length); // Gives me random number from 0 to nums.length-1
+	private int getRandomIndex(int maxLength){
+		return (int)Math.floor(Math.random()*maxLength); // Gives me random number from 0 to nums.length-1
 	}
 	/** Resets the array to its original configuration and return it. */
 	public int[] reset() {
@@ -46,15 +42,14 @@ class ShuffleAnArray {
 			int index=0;
 			boolean uniqueIndexFound = false;
 			while(!uniqueIndexFound){
-				index = getRandom();
+				index = getRandomIndex(nums.length);
 				if(indexSet.add(index)) uniqueIndexFound=true;
 			}
-			if(map.containsKey(index)){
-				shuffled[i] = map.get(index);
+			if(index< nums.length && index >=0){  //Just making sure index falls under normal array length to avoid arrayndex out of bounds exception
+				shuffled[i] = nums[index]; //refill shuffled array value at index i with original array value at index "index" that we got with random function.
 			}
 		}
 		return shuffled;
-
 	}
 }
 
@@ -64,7 +59,8 @@ public class ShuffleArray {
 
 		int nums[] = new int[]{1,2,3,4,5,10};
 		ShuffleAnArray shuffleAnArray = new ShuffleAnArray(nums);
-		System.out.println(Arrays.toString(shuffleAnArray.shuffle())+ Arrays.toString(shuffleAnArray.reset())+Arrays.toString(shuffleAnArray.shuffle()));
+		System.out.println("Shuffled array = "+Arrays.toString(shuffleAnArray.shuffle())+ " \nNow Resetting to "+ Arrays.toString(shuffleAnArray.reset())+"\nNow shuffling again to "+Arrays.toString(shuffleAnArray.shuffle()));
+		System.out.println(Arrays.toString(shuffleAnArray.shuffle())+Arrays.toString(shuffleAnArray.shuffle()));
 	}
 
 
