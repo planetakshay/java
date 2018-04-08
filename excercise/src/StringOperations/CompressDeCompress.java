@@ -35,21 +35,22 @@ public class CompressDeCompress {
 
 			if(s.charAt(i)==s.charAt(i-1))
 			{
-				charCount++;
+				charCount++;   //Just counts how many times a single character is repeating
 			}else{
 
 				if(charCount>1){
-					op.append(s.charAt(i-1)+""+charCount);
+					op.append(s.charAt(i-1)+""+charCount);  //if the character is not repeating and if it has been counted to be more than 1 just append the character and the number of times it appears
 
 				}else{
-					op.append(""+s.charAt(i-1));
+					op.append(""+s.charAt(i-1));   // this is if there are multiple single characters. like aabcdfhh - i.e. b,c,d
 
 				}
 				charCount=1;
 			}
 
 		}
-
+		//Following code is if there are repeating characters at the end of the string aboce for loop will not take care of that scenario so we need to end the compressed string
+		//by simple same logic is is in else close of above for loop.
 		if(charCount>1){
 			op.append(s.charAt(s.length()-1)+""+charCount);
 
