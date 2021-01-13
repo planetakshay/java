@@ -2,9 +2,6 @@ package mathproblems;
 
 //import com.sun.prism.shader.Solid_ImagePattern_Loader;
 
-import javax.xml.soap.SOAPPart;
-import java.util.Arrays;
-
 /**
  * Created by Deodhar Family on 4/29/2017.
  */
