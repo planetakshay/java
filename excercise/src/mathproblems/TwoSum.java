@@ -13,6 +13,7 @@ public class TwoSum {
         if(array.length <2){
             return null;
         }
+        //This is a brute force solution and O(n2) and not the most efficient one
         //iterate over all elements of array
         for(int i= 0; i<array.length;i++){
             // To add two elements start from the next one
