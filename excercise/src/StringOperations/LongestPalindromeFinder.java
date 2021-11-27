@@ -10,13 +10,15 @@ public class LongestPalindromeFinder {
         System.out.println(lpf.longestPalindromeString("9912321456"));
         System.out.println(lpf.longestPalindromeString("9912333321456"));
         System.out.println(lpf.longestPalindromeString("12145445499"));
+        ///This algo fails for following test case and not able to submit to leetcode
+        System.out.println(lpf.longestPalindromeString("CBBD"));
+        System.out.println(lpf.longestPalindromeString("1223"));
     }
  
     /**
      * This method returns the longest palindrome in the input String
      * 
-     * @param in
-     * @return
+     * @return palindrome
      */
     public String longestPalindromeString(String in) {
         char[] input = in.toCharArray();
