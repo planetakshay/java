@@ -42,7 +42,7 @@ public class NumberPalindrome {
         int i = 0;
         int j = digits.size()-1;
         while(i<=j){
-            if(digits.get(i).equals(digits.get(j))){
+            if(!digits.get(i).equals(digits.get(j))){
                 return false;
             }
             i++;
