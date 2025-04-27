@@ -34,25 +34,22 @@ public class AnagramGroupFreq {
 		Arrays.sort(c);
 		return String.valueOf(c);
 	}
-	public static void main(String args[]){
+	public static void main(String[] args){
 		
 		String[] list = new String[]{"i love java","ADD" , "DAD" , "TOY", "ABC" , "ACB", "BAC" , "XYZ", "XYY" , "YYX" };
 		Map<String,String> anaMap = new HashMap<String,String>();
-		
-		for(int i=0;i<list.length;i++){
-			String str = list[i];
-			String key = AnagramGroupFreq.sort(str);
-			String value = "";
-			if(anaMap.containsKey(key)){
-				value = anaMap.get(key);
-				value = value +","+list[i];
-				anaMap.put(key, value);
-			}
-			else{
-				value=str;
-				anaMap.put(key, value);
-			}
-		}
+        for (String str : list) {
+            String key = AnagramGroupFreq.sort(str);
+            String value = "";
+            if (anaMap.containsKey(key)) {
+                value = anaMap.get(key);
+                value = value + "," + str;
+                anaMap.put(key, value);
+            } else {
+                value = str;
+                anaMap.put(key, value);
+            }
+        }
 		for(Map.Entry<String, String> entry: anaMap.entrySet()){
 			System.out.println(" Key = "+entry.getKey() + " and Value ->"+entry.getValue().toString());
 		}
