@@ -2,6 +2,7 @@ package interviewexcercises;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -18,43 +19,47 @@ public class TestFriendship1 {
     // Note this test only exercises 2 of the Friendship methods.
 	//@Test
 	public void testGetDirectFriends() {
-		Friendship1 friendship1 = new Friendship1();
+		Friendship1Fixed friendship1 = new Friendship1Fixed();
         friendship1.makeFriend("Aaron", "Bella");
         friendship1.makeFriend("Bella", "Cindy");
         friendship1.makeFriend("Bella", "David");
         friendship1.makeFriend("David", "Elizabeth");
         friendship1.makeFriend("Cindy", "Frank");
-        
+
         List<String> directFriends = friendship1.getDirectFriends("David");
-        
-   		ArrayList<String> expectedFriends = new ArrayList<String>();
+
+		ArrayList<String> expectedFriends = new ArrayList<String>();
         expectedFriends.add("Bella");
         expectedFriends.add("Elizabeth");
+        Collections.sort(expectedFriends);
+        Collections.sort(directFriends);
 
         assertEquals(expectedFriends, directFriends);
-        
+
 	}
-	
+
 	@Test
 	public void testGetDirectFriendsOne() {
-		Friendship1 friendship1 = new Friendship1();
+		Friendship1Fixed friendship1 = new Friendship1Fixed();
         friendship1.makeFriend("A", "B");
         friendship1.makeFriend("B", "C");
         friendship1.makeFriend("B", "D");
         friendship1.makeFriend("D", "E");
         friendship1.makeFriend("C", "F");
         friendship1.makeFriend("C", "Z");
-        
+
         List<String> directFriends = friendship1.getDirectFriends("A");
         List<String> indirectFriends = friendship1.getIndirectFriends("A");
-   		
+
         ArrayList<String> expectedInFriends = new ArrayList<String>();
         expectedInFriends.add("C");
         expectedInFriends.add("D");
         expectedInFriends.add("E");
         expectedInFriends.add("F");
         expectedInFriends.add("Z");
-        
+
+        Collections.sort(expectedInFriends);
+        Collections.sort(indirectFriends);
 
         assertEquals(expectedInFriends, indirectFriends);
 	}

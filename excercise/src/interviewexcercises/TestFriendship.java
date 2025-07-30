@@ -19,16 +19,16 @@ public class TestFriendship {
     // Note this test only exercises 2 of the Friendship methods.
 	@Test
 	public void testGetDirectFriends() {
-		Friendship friendship = new Friendship();
+		FriendshipFixed friendship = new FriendshipFixed();
         friendship.makeFriend("Aaron", "Bella");
         friendship.makeFriend("Bella", "Cindy");
         friendship.makeFriend("Bella", "David");
         friendship.makeFriend("David", "Elizabeth");
         friendship.makeFriend("Cindy", "Frank");
-        
+
         List<String> directFriends = friendship.getDirectFriends("David");
-        
-   		ArrayList<String> expectedFriends = new ArrayList<String>();
+
+		ArrayList<String> expectedFriends = new ArrayList<String>();
         expectedFriends.add("Bella");
         expectedFriends.add("Elizabeth");
 
@@ -36,20 +36,19 @@ public class TestFriendship {
 	}
 	@Test
 	public void testGetDirectFriendsOne(){
-		Friendship friendship = new Friendship();
+		FriendshipFixed friendship = new FriendshipFixed();
         friendship.makeFriend("A", "B");
         friendship.makeFriend("B", "C");
         friendship.makeFriend("C", "D");
         friendship.makeFriend("C", "G");
-        
+
         List<String> indirectFriends = friendship.getIndirectFriends("A");
         ArrayList<String> expectedFriends = new ArrayList<String>();
         expectedFriends.add("C");
-        
+
         assertEquals(expectedFriends, indirectFriends);
-        
-        
+
+
 	}
 
 }
-
